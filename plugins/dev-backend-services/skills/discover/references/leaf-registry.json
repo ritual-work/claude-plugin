@@ -28,7 +28,7 @@
         "Errors are logged with correlation/context; no secrets in messages.",
         "Idempotency / retry behavior is defined for unsafe operations."
       ],
-      "done_criteria": "Each checklist item is confirmed present in the diff or raised as an explicit gap."
+      "done_criteria": "Each checklist item is confirmed present in the code under review (the diff, PR, or files in scope) or raised as an explicit gap. If no code is in scope, say so and ask what to review."
     },
     {
       "leaf_key": "implementation-plan-brief",

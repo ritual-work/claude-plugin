@@ -18,13 +18,40 @@
       "homepage": "https://github.com/ritual-work/claude-plugin",
       "repository": "https://github.com/ritual-work/claude-plugin",
       "license": "MIT",
-      "keywords": ["agentic-coding", "discipline", "planning", "context", "ritual"],
+      "keywords": [
+        "agentic-coding",
+        "discipline",
+        "planning",
+        "context",
+        "ritual"
+      ],
       "category": "productivity"
     },
     {
       "name": "dev-backend-services",
       "source": "./plugins/dev-backend-services",
       "description": "Role pack for backend-service developers — role-native discovery for building services and APIs, routing work to the right canonical Ritual job under the backend-developer lens. Depends on build-discipline.",
+      "version": "0.1.2",
+      "author": {
+        "name": "Ritual",
+        "url": "https://ritual.work"
+      },
+      "homepage": "https://github.com/ritual-work/claude-plugin",
+      "repository": "https://github.com/ritual-work/claude-plugin",
+      "license": "MIT",
+      "keywords": [
+        "backend",
+        "api",
+        "agentic-coding",
+        "ritual",
+        "discovery"
+      ],
+      "category": "productivity"
+    },
+    {
+      "name": "product",
+      "source": "./plugins/product",
+      "description": "Role pack for product managers — role-native discovery for product work (opportunity, customer problem, PRD, MVP scope, prioritization), routing each to the right canonical Ritual job under the product lens. Depends on build-discipline.",
       "version": "0.1.1",
       "author": {
         "name": "Ritual",
@@ -33,29 +60,20 @@
       "homepage": "https://github.com/ritual-work/claude-plugin",
       "repository": "https://github.com/ritual-work/claude-plugin",
       "license": "MIT",
-      "keywords": ["backend", "api", "agentic-coding", "ritual", "discovery"],
-      "category": "productivity"
-    },
-    {
-      "name": "product",
-      "source": "./plugins/product",
-      "description": "Role pack for product managers — role-native discovery for product work (opportunity, customer problem, PRD, MVP scope, prioritization), routing each to the right canonical Ritual job under the product lens. Depends on build-discipline.",
-      "version": "0.1.0",
-      "author": {
-        "name": "Ritual",
-        "url": "https://ritual.work"
-      },
-      "homepage": "https://github.com/ritual-work/claude-plugin",
-      "repository": "https://github.com/ritual-work/claude-plugin",
-      "license": "MIT",
-      "keywords": ["product", "pm", "discovery", "ritual", "prd"],
+      "keywords": [
+        "product",
+        "pm",
+        "discovery",
+        "ritual",
+        "prd"
+      ],
       "category": "productivity"
     },
     {
       "name": "marketing",
       "source": "./plugins/marketing",
       "description": "Role pack for marketers — role-native discovery for marketing work (positioning, launch brief, growth experiment), routing each to the right canonical Ritual job under the relevant marketing lens. Depends on build-discipline.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "Ritual",
         "url": "https://ritual.work"
@@ -63,7 +81,13 @@
       "homepage": "https://github.com/ritual-work/claude-plugin",
       "repository": "https://github.com/ritual-work/claude-plugin",
       "license": "MIT",
-      "keywords": ["marketing", "positioning", "growth", "launch", "ritual"],
+      "keywords": [
+        "marketing",
+        "positioning",
+        "growth",
+        "launch",
+        "ritual"
+      ],
       "category": "productivity"
     }
   ]
