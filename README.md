@@ -16,24 +16,24 @@ gathers the context the agent can't infer and **verifies it survived into the di
 
 ```
 /plugin marketplace add Ritual-Mobile/claude-plugin
-/plugin install ritual@ritual
+/plugin install build-discipline@ritual
 ```
 
 ## What it does
 
 The `build-discipline` skill triggers when you start a feature, refactor, or change whose
-intent isn't fully spelled out. It works in two tiers:
+intent isn't fully spelled out. Before planning, it decides how much discovery the task needs:
 
-- **Tier 0 — always, zero setup.** Surface assumptions and explicit success criteria
-  before code; keep changes surgical; verify against the criteria, then stop. Pure
-  discipline, no account required.
-- **Tier 1 — when Ritual is available.** Routes the task into a Ritual exploration:
-  structured discovery surfaces hidden constraints and prior decisions, a validated build
-  brief becomes the success criteria, and a post-change audit confirms those constraints
-  survived into the final diff. This turns "be careful" into a measured result.
+- **No discovery** — trivial, mechanical edits. Just make the change.
+- **Lightweight** — bounded tasks: inspect the relevant files inline; for a small but
+  build-shaped task, run `ritual lite`.
+- **Full discovery — when Ritual is connected.** Routes into a structured exploration:
+  discovery surfaces hidden constraints and prior decisions, a validated build brief becomes
+  the success criteria, and a post-change audit verifies your constraints survived into the
+  final code. This turns "be careful" into a measured result.
 
-If Ritual isn't connected, Tier 0 still applies — and the skill points you to where the
-deeper context-gathering lives.
+If Ritual isn't connected, the discipline still applies — and the skill points you to where
+the deeper context-gathering lives.
 
 ## Pairs with
 
@@ -44,8 +44,9 @@ actually executable.
 
 ## Ritual
 
-The full Ritual workflow — explorations, build briefs, and constraint-survival audits —
-is available via the `ritual` CLI and MCP server. Learn more at
+The full Ritual workflow — explorations, build briefs, and audits that verify your
+constraints survived into the final code — is available via the `ritual` CLI and MCP
+server. Learn more at
 [ritual.work](https://ritual.work).
 
 ## License

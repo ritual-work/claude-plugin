@@ -7,10 +7,10 @@
   "description": "Ritual's Claude Code plugins — structured context and verification for agentic coding.",
   "plugins": [
     {
-      "name": "ritual",
-      "source": "./plugins/ritual",
+      "name": "build-discipline",
+      "source": "./plugins/build-discipline",
       "description": "Build discipline for coding agents: surface assumptions and success criteria before writing code, keep changes surgical — and when a task is ambiguous or cross-cutting, run a Ritual exploration to gather the real context and verify it survived into the diff.",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "author": {
         "name": "Ritual",
         "url": "https://ritual.work"
