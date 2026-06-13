@@ -1,5 +1,5 @@
 {
-  "_comment": "Blessed SUBSET of the canonical Ritual taxonomy, limited to the slugs/personas actually used by packs in THIS public repo. This is NOT the full taxonomy. Source of truth is ritual-enterprise work-graph.ts (WORK_ITEM_META / LEAD_PERSONAS); the real generation pipeline lives there. Adding an entry here requires confirming it exists in the canonical taxonomy.",
+  "_comment": "Blessed SUBSET of the canonical Ritual job taxonomy, limited to the slugs/personas actually used by packs in THIS public repo. This is NOT the full taxonomy. Ritual's canonical taxonomy is the source of truth and the real generation pipeline lives with it. Adding an entry here requires confirming it exists in the canonical taxonomy.",
   "jtbd_ids": [
     "build-backend-service",
     "create-implementation-plan"

@@ -2,10 +2,10 @@
 /*
  * Primitive leaf-registry validator (prototype).
  *
- * The real generation + validation source of truth is ritual-enterprise's
- * work-graph.ts (WORK_ITEM_META / LEAD_PERSONAS). Here we validate authored
- * registries against a blessed SUBSET allowlist so no leaf can ship with a
- * hand-invented or mistyped jtbd_id / persona. Dependency-free on purpose.
+ * The canonical generation + validation source of truth is Ritual's job
+ * taxonomy. Here we validate authored registries against a blessed SUBSET
+ * allowlist so no leaf can ship with a hand-invented or mistyped jtbd_id /
+ * persona. Dependency-free on purpose.
  *
  * Run: node scripts/validate-leaves.mjs   (exits non-zero on any violation)
  */

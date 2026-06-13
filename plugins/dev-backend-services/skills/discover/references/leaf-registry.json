@@ -1,5 +1,5 @@
 {
-  "_comment": "Generated-style leaf registry (hand-authored in this prototype). jtbd_id and persona are CANONICAL Ritual taxonomy values — source of truth is ritual-enterprise work-graph.ts (WORK_ITEM_META / LEAD_PERSONAS). Validated by scripts/validate-leaves.mjs against canonical/jtbd-allowlist.json. Never hand-invent jtbd_id.",
+  "_comment": "Generated-style leaf registry (hand-authored in this prototype). jtbd_id and persona are CANONICAL Ritual taxonomy values from Ritual's source of truth. Validated by scripts/validate-leaves.mjs against canonical/jtbd-allowlist.json. Never hand-invent jtbd_id.",
   "role_pack": "dev-backend-services",
   "action": "discover",
   "leaves": [
