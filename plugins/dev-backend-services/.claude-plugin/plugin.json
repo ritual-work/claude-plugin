@@ -8,7 +8,7 @@
     "url": "https://ritual.work"
   },
   "homepage": "https://ritual.work",
-  "repository": "https://github.com/Ritual-Mobile/claude-plugin",
+  "repository": "https://github.com/ritual-work/claude-plugin",
   "license": "MIT",
   "keywords": ["backend", "api", "agentic-coding", "ritual", "discovery"],
   "dependencies": ["build-discipline"]

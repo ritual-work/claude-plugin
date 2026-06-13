@@ -15,7 +15,7 @@ gathers the context the agent can't infer and **verifies it survived into the di
 ## Install
 
 ```
-/plugin marketplace add Ritual-Mobile/claude-plugin
+/plugin marketplace add ritual-work/claude-plugin
 /plugin install build-discipline@ritual
 ```
 

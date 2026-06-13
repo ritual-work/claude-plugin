@@ -15,8 +15,8 @@
         "name": "Ritual",
         "url": "https://ritual.work"
       },
-      "homepage": "https://github.com/Ritual-Mobile/claude-plugin",
-      "repository": "https://github.com/Ritual-Mobile/claude-plugin",
+      "homepage": "https://github.com/ritual-work/claude-plugin",
+      "repository": "https://github.com/ritual-work/claude-plugin",
       "license": "MIT",
       "keywords": ["agentic-coding", "discipline", "planning", "context", "ritual"],
       "category": "productivity"
@@ -30,8 +30,8 @@
         "name": "Ritual",
         "url": "https://ritual.work"
       },
-      "homepage": "https://github.com/Ritual-Mobile/claude-plugin",
-      "repository": "https://github.com/Ritual-Mobile/claude-plugin",
+      "homepage": "https://github.com/ritual-work/claude-plugin",
+      "repository": "https://github.com/ritual-work/claude-plugin",
       "license": "MIT",
       "keywords": ["backend", "api", "agentic-coding", "ritual", "discovery"],
       "category": "productivity"
