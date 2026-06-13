@@ -15,6 +15,14 @@ matches the task to one leaf in `references/leaf-registry.json` and runs that
 leaf's path. It does not itself do discovery — discovery lives in the Ritual
 engine.
 
+## Speak in the practitioner's language
+
+The mechanics below — "leaf", "leaf_key", "registry", "jtbd_id", "mode",
+"dispatch", "tie-break" — are **internal. Never surface them to the user.** Talk
+about the work and its outcome in their terms ("I'll scope this service's design
+before we build", "running an error-handling check"), never the routing
+internals ("I selected the service-contract-readiness leaf in discovery mode").
+
 ## How it dispatches
 
 1. **Classify — engine-authoritative when reachable.** If the Ritual MCP/CLI is

@@ -1,7 +1,7 @@
 {
   "name": "dev-backend-services",
   "displayName": "Ritual — Backend Services",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Role pack for backend-service developers. Role-native discovery for building services and APIs: routes the work to the right canonical Ritual job under the backend-developer lens, runs standalone checks that need no discovery, and escalates ambiguous work into a Ritual exploration.",
   "author": {
     "name": "Ritual",

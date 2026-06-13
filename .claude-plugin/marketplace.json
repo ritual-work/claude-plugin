@@ -25,7 +25,7 @@
       "name": "dev-backend-services",
       "source": "./plugins/dev-backend-services",
       "description": "Role pack for backend-service developers — role-native discovery for building services and APIs, routing work to the right canonical Ritual job under the backend-developer lens. Depends on build-discipline.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "Ritual",
         "url": "https://ritual.work"
