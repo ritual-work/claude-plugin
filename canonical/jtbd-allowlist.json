@@ -2,7 +2,8 @@
   "_comment": "Blessed SUBSET of the canonical Ritual job taxonomy, limited to the slugs/personas actually used by packs in THIS public repo. This is NOT the full taxonomy. Ritual's canonical taxonomy is the source of truth and the real generation pipeline lives with it. Adding an entry here requires confirming it exists in the canonical taxonomy.",
   "jtbd_ids": [
     "build-backend-service",
-    "create-implementation-plan"
+    "create-implementation-plan",
+    "design-technical-approach"
   ],
   "personas": [
     "backend-developer"

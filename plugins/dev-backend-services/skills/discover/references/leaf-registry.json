@@ -5,7 +5,7 @@
   "leaves": [
     {
       "leaf_key": "service-contract-readiness",
-      "jtbd_id": "build-backend-service",
+      "jtbd_id": "design-technical-approach",
       "persona": "backend-developer",
       "mode": "discovery",
       "title": "Service contract readiness",
