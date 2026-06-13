@@ -9,8 +9,8 @@
     {
       "name": "build-discipline",
       "source": "./plugins/build-discipline",
-      "description": "Build discipline for coding agents: surface assumptions and success criteria before writing code, keep changes surgical — and when a task is ambiguous or cross-cutting, run a Ritual exploration to gather the real context and verify it survived into the diff.",
-      "version": "0.4.0",
+      "description": "Build discipline for coding agents: surface assumptions and success criteria before writing code, keep changes surgical — and when a task is ambiguous or cross-cutting, run a Ritual exploration to gather the real context and verify it survived into the diff. The shared base; role packs depend on it.",
+      "version": "0.5.0",
       "author": {
         "name": "Ritual",
         "url": "https://ritual.work"
@@ -19,6 +19,21 @@
       "repository": "https://github.com/Ritual-Mobile/claude-plugin",
       "license": "MIT",
       "keywords": ["agentic-coding", "discipline", "planning", "context", "ritual"],
+      "category": "productivity"
+    },
+    {
+      "name": "dev-backend-services",
+      "source": "./plugins/dev-backend-services",
+      "description": "Role pack for backend-service developers — role-native discovery for building services and APIs, routing work to the right canonical Ritual job under the backend-developer lens. Depends on build-discipline.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Ritual",
+        "url": "https://ritual.work"
+      },
+      "homepage": "https://github.com/Ritual-Mobile/claude-plugin",
+      "repository": "https://github.com/Ritual-Mobile/claude-plugin",
+      "license": "MIT",
+      "keywords": ["backend", "api", "agentic-coding", "ritual", "discovery"],
       "category": "productivity"
     }
   ]

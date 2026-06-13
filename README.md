@@ -19,6 +19,18 @@ gathers the context the agent can't infer and **verifies it survived into the di
 /plugin install build-discipline@ritual
 ```
 
+## Role packs
+
+`build-discipline` is the shared base. On top of it, the `ritual` marketplace hosts
+role packs that speak each practitioner's vocabulary and route into Ritual:
+
+```
+/plugin install dev-backend-services@ritual
+```
+
+Install only the packs relevant to your role — each declares `build-discipline` as a
+dependency, so the base comes along automatically.
+
 ## What it does
 
 The `build-discipline` skill triggers when you start a feature, refactor, or change whose

@@ -1,5 +1,5 @@
 ---
-name: build-discipline
+name: check
 description: >-
   Apply before entering plan mode for a coding task. Decide how much repository
   discovery the task needs — none, lightweight, or a full Ritual exploration —
