@@ -1,7 +1,7 @@
 {
   "name": "ritual",
   "displayName": "Ritual — Build Discipline",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Build discipline for coding agents. Surfaces assumptions and success criteria before code and keeps changes surgical; when a task is ambiguous or cross-cutting, routes into a Ritual exploration to gather real context (constraints, prior decisions, trade-offs) and verify it survived into the diff.",
   "author": {
     "name": "Ritual",
