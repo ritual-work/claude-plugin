@@ -25,11 +25,14 @@ gathers the context the agent can't infer and **verifies it survived into the di
 role packs that speak each practitioner's vocabulary and route into Ritual:
 
 ```
-/plugin install dev-backend-services@ritual
+/plugin install dev-backend-services@ritual   # Developer — backend services
+/plugin install product@ritual                # Product — opportunity, PRD, scope, prioritization
+/plugin install marketing@ritual              # Marketing — positioning, launch, growth
 ```
 
 Install only the packs relevant to your role — each declares `build-discipline` as a
-dependency, so the base comes along automatically.
+dependency, so the base comes along automatically. Every pack's commands map to
+Ritual's real jobs-to-be-done; ambiguous work routes into a Ritual exploration.
 
 ## What it does
 

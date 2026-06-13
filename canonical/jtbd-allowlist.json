@@ -1,11 +1,22 @@
 {
-  "_comment": "Blessed SUBSET of the canonical Ritual job taxonomy, limited to the slugs/personas actually used by packs in THIS public repo. This is NOT the full taxonomy. Ritual's canonical taxonomy is the source of truth and the real generation pipeline lives with it. Adding an entry here requires confirming it exists in the canonical taxonomy.",
+  "_comment": "Blessed SUBSET of the canonical Ritual job taxonomy, limited to the slugs/personas actually used by packs in THIS public repo. This is NOT the full taxonomy. Ritual's canonical taxonomy is the source of truth and the real generation pipeline lives with it. Every jtbd_id below was verified against the live classifier before use. Adding an entry requires confirming it exists in the canonical taxonomy.",
   "jtbd_ids": [
     "build-backend-service",
     "create-implementation-plan",
-    "design-technical-approach"
+    "design-technical-approach",
+    "frame-product-opportunity",
+    "define-customer-problem",
+    "create-prd",
+    "define-mvp-scope",
+    "prioritize-roadmap",
+    "define-product-positioning",
+    "create-launch-brief",
+    "design-growth-experiment"
   ],
   "personas": [
-    "backend-developer"
+    "backend-developer",
+    "product-manager",
+    "product-marketer",
+    "growth-marketer"
   ]
 }
