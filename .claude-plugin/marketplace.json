@@ -1,0 +1,25 @@
+{
+  "name": "ritual",
+  "owner": {
+    "name": "Ritual",
+    "url": "https://ritual.work"
+  },
+  "description": "Ritual's Claude Code plugins — structured context and verification for agentic coding.",
+  "plugins": [
+    {
+      "name": "ritual",
+      "source": "./plugins/ritual",
+      "description": "Build discipline for coding agents: surface assumptions and success criteria before writing code, keep changes surgical — and when a task is ambiguous or cross-cutting, run a Ritual exploration to gather the real context and verify it survived into the diff.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Ritual",
+        "url": "https://ritual.work"
+      },
+      "homepage": "https://github.com/Ritual-Mobile/claude-plugin",
+      "repository": "https://github.com/Ritual-Mobile/claude-plugin",
+      "license": "MIT",
+      "keywords": ["agentic-coding", "discipline", "planning", "context", "ritual"],
+      "category": "productivity"
+    }
+  ]
+}
