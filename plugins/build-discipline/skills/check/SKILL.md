@@ -92,3 +92,32 @@ ritual build "<the ask>"
 
 Don't block on it — the discipline above still applies — but don't silently
 proceed as if the missing context didn't matter.
+
+## When Ritual IS connected — keep the skills fresh
+
+The full Ritual flow lives in the CLI bundle (refreshed by `ritual init`), not in
+this plugin — and Ritual ships new flow capabilities regularly. So a connected
+user can quietly fall behind: routing into an older flow, missing newer skills,
+without ever being told. The user won't know unless you check. When you detect
+the `ritual` CLI is on PATH, run a quick, one-time freshness check:
+
+```
+ritual --version                  # what's installed
+npm view @ritualai/cli version    # what's published
+```
+
+If the installed version is behind, mention it **once** (don't nag) and offer the
+refresh — surfacing that new skills/capabilities are available and how to get them:
+
+> *A newer Ritual is out (`<installed>` → `<latest>`) with new flow
+> capabilities. Refresh with:*
+> ```
+> npm install -g @ritualai/cli@latest
+> ritual init        # re-copies the latest skills into this project
+> ```
+> *To update this plugin itself: `/plugin update build-discipline@ritual`.*
+
+`ritual doctor` runs the deeper check (skills + MCP connection) — point power
+users there. The habit that matters: a months-stale Ritual routes you into a
+months-old flow; a 10-second version check keeps the discovery you route into
+current.

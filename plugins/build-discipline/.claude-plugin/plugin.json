@@ -1,7 +1,7 @@
 {
   "name": "build-discipline",
   "displayName": "Ritual — Build Discipline",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Build discipline for coding agents. Surfaces assumptions and success criteria before code and keeps changes surgical; when a task is ambiguous or cross-cutting, routes into a Ritual exploration to gather real context (constraints, prior decisions, trade-offs) and verify it survived into the diff.",
   "author": {
     "name": "Ritual",
@@ -10,5 +10,11 @@
   "homepage": "https://ritual.work",
   "repository": "https://github.com/ritual-work/claude-plugin",
   "license": "MIT",
-  "keywords": ["agentic-coding", "discipline", "planning", "context", "ritual"]
+  "keywords": [
+    "agentic-coding",
+    "discipline",
+    "planning",
+    "context",
+    "ritual"
+  ]
 }
