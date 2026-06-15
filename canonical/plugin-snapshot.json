@@ -1,0 +1,298 @@
+{
+  "_generated": "DO NOT EDIT — generated from work-graph.ts by scripts/emit-plugin-snapshot.mjs; consumed by the ritual-work/claude-plugin generator.",
+  "sourceSha": "935af0c0f728346a",
+  "function": "development",
+  "personaCount": 5,
+  "commandCount": 16,
+  "personas": [
+    {
+      "persona": "developer",
+      "label": "Developer",
+      "function": "development",
+      "commands": [
+        {
+          "commandName": "understand-codebase",
+          "jtbdId": "understand-codebase-area",
+          "mode": "discovery",
+          "deliverableTemplate": "Codebase Orientation Brief",
+          "sections": [
+            "code map",
+            "ownership",
+            "dependencies",
+            "entry points",
+            "risks",
+            "open questions"
+          ],
+          "composedSectionCount": 15
+        },
+        {
+          "commandName": "plan-implementation",
+          "jtbdId": "create-implementation-plan",
+          "mode": "discovery",
+          "deliverableTemplate": "Implementation Plan",
+          "sections": [
+            "task breakdown",
+            "sequencing",
+            "dependencies",
+            "test plan",
+            "rollout notes"
+          ],
+          "composedSectionCount": 16
+        },
+        {
+          "commandName": "integrate-api",
+          "jtbdId": "integrate-api",
+          "mode": "discovery",
+          "deliverableTemplate": "Integration Brief",
+          "sections": [
+            "API usage",
+            "client/server assumptions",
+            "error handling",
+            "test cases"
+          ],
+          "composedSectionCount": 13
+        },
+        {
+          "commandName": "build-docs-site",
+          "jtbdId": "create-docs-site",
+          "mode": "discovery",
+          "deliverableTemplate": "Documentation Site Brief",
+          "sections": [
+            "information architecture",
+            "implementation plan",
+            "content structure",
+            "deploy notes"
+          ],
+          "composedSectionCount": 17
+        },
+        {
+          "commandName": "refactor-code",
+          "jtbdId": "refactor-code",
+          "mode": "discovery",
+          "deliverableTemplate": "Refactor Plan",
+          "sections": [
+            "current structure",
+            "target structure",
+            "risk areas",
+            "migration steps",
+            "test plan"
+          ],
+          "composedSectionCount": 10
+        },
+        {
+          "commandName": "debug-production-issue",
+          "jtbdId": "debug-production-issue",
+          "mode": "discovery",
+          "deliverableTemplate": "Debugging Brief",
+          "sections": [
+            "symptoms",
+            "hypotheses",
+            "repro steps",
+            "logs to inspect",
+            "suspected root cause",
+            "mitigation"
+          ],
+          "composedSectionCount": 20
+        },
+        {
+          "commandName": "improve-performance",
+          "jtbdId": "improve-performance",
+          "mode": "discovery",
+          "deliverableTemplate": "Performance Brief",
+          "sections": [
+            "baseline metrics",
+            "bottleneck hypotheses",
+            "profiling plan",
+            "optimization options",
+            "benchmark plan"
+          ],
+          "composedSectionCount": 13
+        },
+        {
+          "commandName": "add-tests",
+          "jtbdId": "add-tests",
+          "mode": "discovery",
+          "deliverableTemplate": "Test Strategy Brief",
+          "sections": [
+            "test inventory",
+            "missing cases",
+            "unit/integration/e2e plan",
+            "fixtures"
+          ],
+          "composedSectionCount": 9
+        },
+        {
+          "commandName": "prepare-release",
+          "jtbdId": "prepare-release",
+          "mode": "discovery",
+          "deliverableTemplate": "Release Readiness Brief",
+          "sections": [
+            "release checklist",
+            "deploy steps",
+            "rollback plan",
+            "verification plan"
+          ],
+          "composedSectionCount": 14
+        },
+        {
+          "commandName": "build-spike",
+          "jtbdId": "build-technical-spike",
+          "mode": "discovery",
+          "deliverableTemplate": "Technical Spike Brief",
+          "sections": [
+            "spike question",
+            "prototype scope",
+            "approach",
+            "findings",
+            "recommendation"
+          ],
+          "composedSectionCount": 14
+        }
+      ]
+    },
+    {
+      "persona": "frontend-developer",
+      "label": "Frontend Developer",
+      "function": "development",
+      "commands": [
+        {
+          "commandName": "build-frontend-feature",
+          "jtbdId": "build-frontend-feature",
+          "mode": "discovery",
+          "deliverableTemplate": "Frontend Feature Brief",
+          "sections": [
+            "routes",
+            "components",
+            "UI state",
+            "API integration",
+            "loading/error/empty states",
+            "accessibility",
+            "tests"
+          ],
+          "composedSectionCount": 20
+        }
+      ]
+    },
+    {
+      "persona": "backend-developer",
+      "label": "Backend Developer",
+      "function": "development",
+      "commands": [
+        {
+          "commandName": "define-service-contract",
+          "jtbdId": "build-backend-service",
+          "mode": "discovery",
+          "deliverableTemplate": "Service Build Brief",
+          "sections": [
+            "service boundary",
+            "API contract",
+            "data model",
+            "auth",
+            "failure modes",
+            "observability",
+            "rollout safety"
+          ],
+          "composedSectionCount": 25
+        }
+      ]
+    },
+    {
+      "persona": "eng-lead",
+      "label": "Eng Lead",
+      "function": "development",
+      "commands": [
+        {
+          "commandName": "design-technical-approach",
+          "jtbdId": "design-technical-approach",
+          "mode": "discovery",
+          "deliverableTemplate": "Technical Design Brief",
+          "sections": [
+            "approach options",
+            "tradeoffs",
+            "architecture decision",
+            "sequencing",
+            "risk mitigation"
+          ],
+          "composedSectionCount": 17
+        }
+      ]
+    },
+    {
+      "persona": "devex-engineer",
+      "label": "DevEx Engineer",
+      "function": "development",
+      "commands": [
+        {
+          "commandName": "build-agent-capability",
+          "jtbdId": "build-agent-capability",
+          "mode": "discovery",
+          "deliverableTemplate": "Feature Specification (Agentic Coding)",
+          "sections": [
+            "agent workflow",
+            "tool boundaries",
+            "developer ergonomics",
+            "failure modes",
+            "eval plan"
+          ],
+          "composedSectionCount": 20
+        },
+        {
+          "commandName": "author-skill-flow",
+          "jtbdId": "author-skill-flow",
+          "mode": "discovery",
+          "deliverableTemplate": "Feature Specification (Agentic Coding)",
+          "sections": [
+            "skill trigger",
+            "user path",
+            "instructions",
+            "examples",
+            "guardrails",
+            "test cases"
+          ],
+          "composedSectionCount": 19
+        },
+        {
+          "commandName": "build-mcp-tool",
+          "jtbdId": "build-mcp-tool",
+          "mode": "discovery",
+          "deliverableTemplate": "Platform Capability (Implementation Brief)",
+          "sections": [
+            "tool schema",
+            "runtime contract",
+            "auth/setup path",
+            "error handling",
+            "observability"
+          ],
+          "composedSectionCount": 21
+        }
+      ]
+    }
+  ],
+  "allowlist": {
+    "jtbdIds": [
+      "add-tests",
+      "author-skill-flow",
+      "build-agent-capability",
+      "build-backend-service",
+      "build-frontend-feature",
+      "build-mcp-tool",
+      "build-technical-spike",
+      "create-docs-site",
+      "create-implementation-plan",
+      "debug-production-issue",
+      "design-technical-approach",
+      "improve-performance",
+      "integrate-api",
+      "prepare-release",
+      "refactor-code",
+      "understand-codebase-area"
+    ],
+    "personas": [
+      "backend-developer",
+      "developer",
+      "devex-engineer",
+      "eng-lead",
+      "frontend-developer"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "backend-developer",
+  "displayName": "Ritual — Backend Developer",
+  "version": "0.1.0",
+  "description": "Role pack for backend developers. Job-native commands that scope backend developer work into a decision-ready Ritual brief before you build — one command per job this lens leads. Depends on build-discipline.",
+  "author": {
+    "name": "Ritual",
+    "url": "https://ritual.work"
+  },
+  "homepage": "https://ritual.work",
+  "repository": "https://github.com/ritual-work/claude-plugin",
+  "license": "MIT",
+  "keywords": [
+    "ritual",
+    "agentic-coding",
+    "backend-developer",
+    "discovery"
+  ],
+  "dependencies": [
+    "build-discipline"
+  ]
+}
