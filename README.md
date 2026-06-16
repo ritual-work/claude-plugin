@@ -22,17 +22,26 @@ gathers the context the agent can't infer and **verifies it survived into the di
 ## Role packs
 
 `build-discipline` is the shared base. On top of it, the `ritual` marketplace hosts
-role packs that speak each practitioner's vocabulary and route into Ritual:
+**role packs that ship job-native slash commands** — one per job that lens leads,
+in the practitioner's own vocabulary. A command scopes its job into a decision-ready
+Ritual brief (not code) before you build.
+
+Development-function packs:
 
 ```
-/plugin install dev-backend-services@ritual   # Developer — backend services
-/plugin install product@ritual                # Product — opportunity, PRD, scope, prioritization
-/plugin install marketing@ritual              # Marketing — positioning, launch, growth
+/plugin install developer@ritual            # /developer:plan-implementation, :refactor-code, :debug-production-issue, …
+/plugin install frontend-developer@ritual   # /frontend-developer:build-frontend-feature
+/plugin install backend-developer@ritual    # /backend-developer:define-service-contract
+/plugin install eng-lead@ritual             # /eng-lead:design-technical-approach
+/plugin install devex-engineer@ritual       # /devex-engineer:build-agent-capability, :author-skill-flow, :build-mcp-tool
 ```
+
+Product and marketing packs (`product@ritual`, `marketing@ritual`) remain available on
+the prior discovery-dispatcher model pending their job-native rebuild.
 
 Install only the packs relevant to your role — each declares `build-discipline` as a
-dependency, so the base comes along automatically. Every pack's commands map to
-Ritual's real jobs-to-be-done; ambiguous work routes into a Ritual exploration.
+dependency, so the base comes along automatically. A command's title is the practitioner's
+job; under it, the canonical Ritual jobs-to-be-done drives discovery.
 
 ## What it does
 
