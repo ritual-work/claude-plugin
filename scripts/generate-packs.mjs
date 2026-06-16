@@ -85,32 +85,60 @@ description: ${`Scope "${titleCase(cmd.jtbdId)}" as a ${label} — produces a ${
 
 # ${label}: ${titleCase(cmd.commandName)}
 
-Scope **${titleCase(cmd.jtbdId)}** through the ${label} lens. This is a Ritual
-discovery command — it produces a **${cmd.deliverableTemplate}** (a decision-ready
-brief, not code) by running the Ritual engine seeded with this job, then folds
-that brief into plan mode before any implementation.
+Scope **${titleCase(cmd.jtbdId)}** through the ${label} lens — a Ritual discovery
+command that produces a **${cmd.deliverableTemplate}** (a decision-ready brief,
+not code), then folds that brief into plan mode before any implementation. When
+Ritual is connected this is the same flow as \`ritual build\`, seeded for this job.
 
 The user's request: $ARGUMENTS
+
+**Apply the build-discipline posture throughout** — surface assumptions, define
+success criteria, keep changes surgical, and verify the constraints survived.
+(\`build-discipline\` is this pack's dependency + offline fallback; its posture is
+woven into the steps below, so you don't rely on it firing ambiently.)
+
+## 1 · Frame — before Ritual
+- Read the request through the **${label}** lens and this job (**${cmd.jtbdId}**).
+- Surface assumptions, missing inputs, constraints, and anti-goals — state them
+  explicitly; never silently guess a load-bearing ambiguity.
+- Establish the success criteria for the deliverable.
+
+## 2 · Discover — run Ritual (MCP is the runtime)
+Discovery runs on the **Ritual MCP**. Check, in order:
+1. **Ritual MCP available** (\`mcp__ritual__*\` tools present)? → **use it.** Create
+   an exploration for the request seeded with **jtbd \`${cmd.jtbdId}\`** under the
+   **${persona}** lens, focused on the ${label} sections below; walk discovery →
+   recommendations → build brief (poll
+   \`get_exploration_status.recommendationsStatus\` until \`ready\`), review the
+   recommendations, and fold the returned brief into plan mode. Same experience
+   as \`ritual build\` today.
+2. **Only the \`ritual\` CLI is present** (MCP not wired yet)? → the CLI is the
+   **setup path**: \`ritual init\` authenticates + connects the MCP, then re-run
+   this command. The CLI is how you install/connect/repair Ritual — not a runtime
+   dependency.
+3. **Neither** → Ritual isn't connected this session. Say so plainly and offer the
+   one-step setup (don't imply the CLI is always required — a user may already
+   have the MCP wired via a custom connector / Claude Code MCP config, in which
+   case step 1 applies):
+   \`\`\`
+   ritual init   # authenticate, connect the Ritual MCP, install recommended plugins
+   \`\`\`
+   While not connected, offer to either (a) continue with a local checklist only,
+   or (b) stop here until Ritual is connected. Don't proceed as if the missing
+   context were resolved.
+
+## 3 · Verify — after Ritual
+- Confirm the resulting brief/output preserves the original constraints + success
+  criteria.
+- Explicitly list any unresolved assumptions, questions, or risks. Don't proceed
+  as if uncertain points are resolved.
 
 ## What you contribute (${label} sections)
 ${sections}
 
 The full ${cmd.deliverableTemplate} composes ${cmd.composedSectionCount} sections
-across every contributing lens; the above are the ${label}'s own.
-
-## How to run it
-1. **Confirm Ritual is connected** — the \`ritual\` CLI or \`mcp__ritual__*\` tools.
-   If it isn't, say so plainly and offer to connect
-   (\`npm i -g @ritualai/cli\` → \`ritual init\`), then fall back to the
-   **build-discipline** skill for generic tiering. Don't proceed as if the
-   missing context didn't matter.
-2. **Run the discovery, seeded with this job.** Create a Ritual exploration for
-   the request above with **jtbd \`${cmd.jtbdId}\`** under the **${persona}** lens,
-   then walk discovery → recommendations → build brief: poll
-   \`get_exploration_status.recommendationsStatus\` until \`ready\`, review the
-   recommendations, and fold the returned brief into plan mode.
-3. **Speak the practitioner's language.** Talk about the work and its outcome in
-   ${label} terms — never the routing internals (jtbd ids, registries, leaves).
+across every contributing lens; the above are the ${label}'s own. Speak in the
+practitioner's language — the work and its outcome, never routing internals.
 `;
     files.set(join('plugins', persona, 'commands', `${cmd.commandName}.md`), body);
   }
