@@ -12,6 +12,8 @@ When a task looks like Frontend Developer work, the right entry is a **job-nativ
 (user-invoked, no guessing). Suggest the closest match:
 
 - `/frontend-developer:build-frontend-feature` — Build Frontend Feature
+- `/frontend-developer:review-accessibility` — Build Frontend Feature
+- `/frontend-developer:review-loading-error-empty-states` — Build Frontend Feature
 
 Each command scopes its job into a decision-ready Ritual brief (not code) and
 degrades cleanly when Ritual isn't connected. If none fit, defer to

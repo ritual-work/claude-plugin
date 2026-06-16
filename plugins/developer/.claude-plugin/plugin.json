@@ -2,7 +2,7 @@
   "name": "developer",
   "displayName": "Ritual — Developer",
   "version": "0.1.0",
-  "description": "Role pack for developers. Job-native commands that scope developer work into a decision-ready Ritual brief before you build — one command per job this lens leads. Depends on build-discipline.",
+  "description": "Role pack for developers. Job-native commands for developer work — discovery commands scope a job into a decision-ready Ritual brief before you build; standalone check commands run a local recipe (no Ritual needed). Depends on build-discipline.",
   "author": {
     "name": "Ritual",
     "url": "https://ritual.work"

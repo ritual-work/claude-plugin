@@ -2,7 +2,7 @@
   "name": "eng-lead",
   "displayName": "Ritual — Eng Lead",
   "version": "0.1.0",
-  "description": "Role pack for eng leads. Job-native commands that scope eng lead work into a decision-ready Ritual brief before you build — one command per job this lens leads. Depends on build-discipline.",
+  "description": "Role pack for eng leads. Job-native commands for eng lead work — discovery commands scope a job into a decision-ready Ritual brief before you build; standalone check commands run a local recipe (no Ritual needed). Depends on build-discipline.",
   "author": {
     "name": "Ritual",
     "url": "https://ritual.work"

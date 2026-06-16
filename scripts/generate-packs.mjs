@@ -69,15 +69,47 @@ for (const pack of snapshot.personas) {
     displayName: `Ritual — ${label}`,
     version,
     description:
-      `Role pack for ${label.toLowerCase()}s. Job-native commands that scope ${label.toLowerCase()} work into a ` +
-      `decision-ready Ritual brief before you build — one command per job this lens leads. Depends on build-discipline.`,
+      `Role pack for ${label.toLowerCase()}s. Job-native commands for ${label.toLowerCase()} work — ` +
+      `discovery commands scope a job into a decision-ready Ritual brief before you build; standalone ` +
+      `check commands run a local recipe (no Ritual needed). Depends on build-discipline.`,
     ...COMMON,
     keywords: ['ritual', 'agentic-coding', persona, 'discovery'],
     dependencies: ['build-discipline'],
   }, null, 2) + '\n');
 
-  // commands/<name>.md — one per lead job
+  // commands/<name>.md — one per job (discovery or standalone)
   for (const cmd of commands) {
+    if (cmd.mode === 'standalone') {
+      const checklist = cmd.recipe.map((r) => `- [ ] ${r}`).join('\n');
+      files.set(join('plugins', persona, 'commands', `${cmd.commandName}.md`), `---
+description: ${cmd.summary}
+---
+
+# ${label}: ${titleCase(cmd.commandName)}
+
+${cmd.summary} A **standalone check** — it runs a local recipe; **no Ritual
+discovery engine needed**.
+
+What to review: $ARGUMENTS
+
+**Apply the build-discipline posture** — surface assumptions, define what "good"
+means here, keep it surgical, and verify against the checklist.
+
+## Run it
+1. Read the request through the **${label}** lens (job: \`${cmd.jtbdId}\`).
+2. Surface assumptions + the success criteria for this review.
+3. Work the checklist against the code/surface under review:
+${checklist}
+4. Verify each item — confirmed present, or raised as an explicit gap (note the file/line).
+   **Done when:** ${cmd.doneCriteria}
+5. **Escalate to Ritual discovery** (\`ritual build\`, or this pack's discovery
+   commands) ONLY if the task turns out ambiguous, cross-functional, or needs
+   constraints that live outside the code — say so rather than guessing.
+
+No Ritual connection is required for this check.
+`);
+      continue;
+    }
     const sections = cmd.sections.map((s) => `- ${s}`).join('\n');
     const body = `---
 description: ${`Scope "${titleCase(cmd.jtbdId)}" as a ${label} — produces a ${cmd.deliverableTemplate} (a decision-ready brief, not code).`}

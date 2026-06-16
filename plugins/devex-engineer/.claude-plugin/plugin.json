@@ -2,7 +2,7 @@
   "name": "devex-engineer",
   "displayName": "Ritual — DevEx Engineer",
   "version": "0.1.0",
-  "description": "Role pack for devex engineers. Job-native commands that scope devex engineer work into a decision-ready Ritual brief before you build — one command per job this lens leads. Depends on build-discipline.",
+  "description": "Role pack for devex engineers. Job-native commands for devex engineer work — discovery commands scope a job into a decision-ready Ritual brief before you build; standalone check commands run a local recipe (no Ritual needed). Depends on build-discipline.",
   "author": {
     "name": "Ritual",
     "url": "https://ritual.work"

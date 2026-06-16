@@ -1,9 +1,9 @@
 {
   "_generated": "DO NOT EDIT — generated from work-graph.ts by scripts/emit-plugin-snapshot.mjs; consumed by the ritual-work/claude-plugin generator.",
-  "sourceSha": "935af0c0f728346a",
+  "sourceSha": "27b328041f2b419f",
   "function": "development",
   "personaCount": 5,
-  "commandCount": 16,
+  "commandCount": 19,
   "personas": [
     {
       "persona": "developer",
@@ -170,6 +170,34 @@
             "tests"
           ],
           "composedSectionCount": 20
+        },
+        {
+          "commandName": "review-accessibility",
+          "jtbdId": "build-frontend-feature",
+          "mode": "standalone",
+          "summary": "Check keyboard, screen-reader, contrast, focus, and semantics for a UI surface.",
+          "recipe": [
+            "Every interactive element is keyboard-reachable and operable — no mouse-only paths.",
+            "Semantic elements / ARIA roles + labels are correct; landmarks present.",
+            "Visible focus state on all focusable elements; focus order is logical.",
+            "Text and essential UI meet WCAG AA contrast.",
+            "Dynamic changes are announced (aria-live / role) where the user must notice them."
+          ],
+          "doneCriteria": "Each item is confirmed, or raised as an explicit gap with the offending element noted."
+        },
+        {
+          "commandName": "review-loading-error-empty-states",
+          "jtbdId": "build-frontend-feature",
+          "mode": "standalone",
+          "summary": "Check loading, error, empty, partial, and retry states for a UI surface.",
+          "recipe": [
+            "A loading state for every async fetch (skeleton/spinner); no layout jump on resolve.",
+            "An error state with a user-facing message and a retry affordance where recoverable.",
+            "An empty state distinct from loading — never a blank or zero-render.",
+            "Partial-data and slow-network behavior is defined, not accidental.",
+            "No unhandled rejection leaves a dead UI; every failure has a visible outcome."
+          ],
+          "doneCriteria": "Each state is confirmed handled, or raised as an explicit gap."
         }
       ]
     },
@@ -193,6 +221,20 @@
             "rollout safety"
           ],
           "composedSectionCount": 25
+        },
+        {
+          "commandName": "review-error-handling",
+          "jtbdId": "build-backend-service",
+          "mode": "standalone",
+          "summary": "Audit failure states, retries, validation, and idempotency in the code under review.",
+          "recipe": [
+            "Every external/IO call has a typed error path + handling — no silent catch, no swallowed rejection.",
+            "Inputs are validated at the boundary before use (shape, range, auth/tenant scope).",
+            "Outbound calls have timeouts + bounded retries with backoff; no unbounded waits.",
+            "Failures emit structured logs/metrics with enough context to triage.",
+            "Mutating operations are idempotent under retry, or explicitly justified not to be."
+          ],
+          "doneCriteria": "Each item is confirmed present in the code under review, or raised as an explicit gap with the file/line noted."
         }
       ]
     },

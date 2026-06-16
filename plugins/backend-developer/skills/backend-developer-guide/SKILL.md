@@ -12,6 +12,7 @@ When a task looks like Backend Developer work, the right entry is a **job-native
 (user-invoked, no guessing). Suggest the closest match:
 
 - `/backend-developer:define-service-contract` — Build Backend Service
+- `/backend-developer:review-error-handling` — Build Backend Service
 
 Each command scopes its job into a decision-ready Ritual brief (not code) and
 degrades cleanly when Ritual isn't connected. If none fit, defer to
