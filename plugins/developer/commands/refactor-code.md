@@ -53,12 +53,13 @@ Discovery runs on the **Ritual MCP**. Check, in order:
   as if uncertain points are resolved.
 
 ## What you contribute (Developer sections)
-- current structure
-- target structure
-- risk areas
-- migration steps
-- test plan
+- refactor scope + motivation
+- current vs target structure
+- behavior preservation
+- incremental steps
+- rollback safety
+- refactor verification
 
-The full Refactor Plan composes 10 sections
+The full Refactor Plan composes 15 sections
 across every contributing lens; the above are the Developer's own. Speak in the
 practitioner's language — the work and its outcome, never routing internals.

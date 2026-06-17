@@ -53,12 +53,13 @@ Discovery runs on the **Ritual MCP**. Check, in order:
   as if uncertain points are resolved.
 
 ## What you contribute (Developer sections)
-- baseline metrics
-- bottleneck hypotheses
-- profiling plan
-- optimization options
-- benchmark plan
+- performance goals
+- current baseline
+- bottleneck analysis
+- optimization plan
+- implementation approach
+- validation method
 
-The full Performance Brief composes 13 sections
+The full Performance Brief composes 18 sections
 across every contributing lens; the above are the Developer's own. Speak in the
 practitioner's language — the work and its outcome, never routing internals.

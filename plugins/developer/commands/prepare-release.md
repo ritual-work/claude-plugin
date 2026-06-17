@@ -53,11 +53,13 @@ Discovery runs on the **Ritual MCP**. Check, in order:
   as if uncertain points are resolved.
 
 ## What you contribute (Developer sections)
-- release checklist
-- deploy steps
+- release summary
+- change inventory
+- readiness checklist
+- deployment plan
 - rollback plan
-- verification plan
+- post-release verification
 
-The full Release Readiness Brief composes 14 sections
+The full Release Readiness Brief composes 18 sections
 across every contributing lens; the above are the Developer's own. Speak in the
 practitioner's language — the work and its outcome, never routing internals.

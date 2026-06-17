@@ -54,11 +54,12 @@ Discovery runs on the **Ritual MCP**. Check, in order:
 
 ## What you contribute (Developer sections)
 - spike question
-- prototype scope
-- approach
-- findings
+- approach explored
+- prototype findings
+- feasibility assessment
 - recommendation
+- open questions
 
-The full Technical Spike Brief composes 14 sections
+The full Technical Spike Brief composes 18 sections
 across every contributing lens; the above are the Developer's own. Speak in the
 practitioner's language — the work and its outcome, never routing internals.

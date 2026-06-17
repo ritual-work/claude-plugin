@@ -53,11 +53,12 @@ Discovery runs on the **Ritual MCP**. Check, in order:
   as if uncertain points are resolved.
 
 ## What you contribute (DevEx Engineer sections)
-- tool schema
-- runtime contract
-- auth/setup path
-- error handling
-- observability
+- tool overview
+- tool contract
+- input/output schema
+- ergonomics and defaults
+- manifest and registration
+- rollout plan
 
 The full Platform Capability (Implementation Brief) composes 21 sections
 across every contributing lens; the above are the DevEx Engineer's own. Speak in the

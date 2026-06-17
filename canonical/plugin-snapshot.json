@@ -1,6 +1,6 @@
 {
   "_generated": "DO NOT EDIT — generated from work-graph.ts by scripts/emit-plugin-snapshot.mjs; consumed by the ritual-work/claude-plugin generator.",
-  "sourceSha": "27b328041f2b419f",
+  "sourceSha": "d8d3c9bd8b0a35f4",
   "function": "development",
   "personaCount": 5,
   "commandCount": 19,
@@ -16,14 +16,14 @@
           "mode": "discovery",
           "deliverableTemplate": "Codebase Orientation Brief",
           "sections": [
-            "code map",
-            "ownership",
-            "dependencies",
-            "entry points",
-            "risks",
-            "open questions"
+            "area boundary",
+            "key modules + entry points",
+            "data + state flow",
+            "extension points",
+            "gotchas + tech debt",
+            "where to start"
           ],
-          "composedSectionCount": 15
+          "composedSectionCount": 18
         },
         {
           "commandName": "plan-implementation",
@@ -31,13 +31,14 @@
           "mode": "discovery",
           "deliverableTemplate": "Implementation Plan",
           "sections": [
-            "task breakdown",
-            "sequencing",
-            "dependencies",
-            "test plan",
-            "rollout notes"
+            "scope + assumptions",
+            "work breakdown",
+            "dependencies + ordering",
+            "implementation steps",
+            "testing + verification",
+            "rollout + done criteria"
           ],
-          "composedSectionCount": 16
+          "composedSectionCount": 18
         },
         {
           "commandName": "integrate-api",
@@ -45,12 +46,14 @@
           "mode": "discovery",
           "deliverableTemplate": "Integration Brief",
           "sections": [
-            "API usage",
-            "client/server assumptions",
-            "error handling",
-            "test cases"
+            "integration scope",
+            "api contract mapping",
+            "data mapping + transforms",
+            "error + retry handling",
+            "failure modes",
+            "integration testing"
           ],
-          "composedSectionCount": 13
+          "composedSectionCount": 15
         },
         {
           "commandName": "build-docs-site",
@@ -58,12 +61,14 @@
           "mode": "discovery",
           "deliverableTemplate": "Documentation Site Brief",
           "sections": [
-            "information architecture",
-            "implementation plan",
-            "content structure",
-            "deploy notes"
+            "site scope + goals",
+            "tooling + framework",
+            "content pipeline",
+            "navigation + search",
+            "build + preview",
+            "site testing"
           ],
-          "composedSectionCount": 17
+          "composedSectionCount": 21
         },
         {
           "commandName": "refactor-code",
@@ -71,13 +76,14 @@
           "mode": "discovery",
           "deliverableTemplate": "Refactor Plan",
           "sections": [
-            "current structure",
-            "target structure",
-            "risk areas",
-            "migration steps",
-            "test plan"
+            "refactor scope + motivation",
+            "current vs target structure",
+            "behavior preservation",
+            "incremental steps",
+            "rollback safety",
+            "refactor verification"
           ],
-          "composedSectionCount": 10
+          "composedSectionCount": 15
         },
         {
           "commandName": "debug-production-issue",
@@ -85,14 +91,15 @@
           "mode": "discovery",
           "deliverableTemplate": "Debugging Brief",
           "sections": [
+            "incident summary",
             "symptoms",
+            "investigation timeline",
+            "root cause",
             "hypotheses",
-            "repro steps",
-            "logs to inspect",
-            "suspected root cause",
-            "mitigation"
+            "proposed fix",
+            "rollback plan"
           ],
-          "composedSectionCount": 20
+          "composedSectionCount": 22
         },
         {
           "commandName": "improve-performance",
@@ -100,13 +107,14 @@
           "mode": "discovery",
           "deliverableTemplate": "Performance Brief",
           "sections": [
-            "baseline metrics",
-            "bottleneck hypotheses",
-            "profiling plan",
-            "optimization options",
-            "benchmark plan"
+            "performance goals",
+            "current baseline",
+            "bottleneck analysis",
+            "optimization plan",
+            "implementation approach",
+            "validation method"
           ],
-          "composedSectionCount": 13
+          "composedSectionCount": 18
         },
         {
           "commandName": "add-tests",
@@ -114,12 +122,14 @@
           "mode": "discovery",
           "deliverableTemplate": "Test Strategy Brief",
           "sections": [
+            "testing goals",
+            "coverage assessment",
             "test inventory",
-            "missing cases",
-            "unit/integration/e2e plan",
-            "fixtures"
+            "test approach",
+            "tooling and fixtures",
+            "gating strategy"
           ],
-          "composedSectionCount": 9
+          "composedSectionCount": 15
         },
         {
           "commandName": "prepare-release",
@@ -127,12 +137,14 @@
           "mode": "discovery",
           "deliverableTemplate": "Release Readiness Brief",
           "sections": [
-            "release checklist",
-            "deploy steps",
+            "release summary",
+            "change inventory",
+            "readiness checklist",
+            "deployment plan",
             "rollback plan",
-            "verification plan"
+            "post-release verification"
           ],
-          "composedSectionCount": 14
+          "composedSectionCount": 18
         },
         {
           "commandName": "build-spike",
@@ -141,12 +153,13 @@
           "deliverableTemplate": "Technical Spike Brief",
           "sections": [
             "spike question",
-            "prototype scope",
-            "approach",
-            "findings",
-            "recommendation"
+            "approach explored",
+            "prototype findings",
+            "feasibility assessment",
+            "recommendation",
+            "open questions"
           ],
-          "composedSectionCount": 14
+          "composedSectionCount": 18
         }
       ]
     },
@@ -161,15 +174,14 @@
           "mode": "discovery",
           "deliverableTemplate": "Frontend Feature Brief",
           "sections": [
-            "routes",
-            "components",
-            "UI state",
-            "API integration",
-            "loading/error/empty states",
+            "feature scope + states",
+            "component architecture",
+            "ux state + data binding",
+            "performance budget",
             "accessibility",
-            "tests"
+            "frontend testing"
           ],
-          "composedSectionCount": 20
+          "composedSectionCount": 21
         },
         {
           "commandName": "review-accessibility",
@@ -213,14 +225,14 @@
           "deliverableTemplate": "Service Build Brief",
           "sections": [
             "service boundary",
-            "API contract",
+            "api contract",
             "data model",
-            "auth",
+            "transactions + consistency",
+            "scaling + performance",
             "failure modes",
-            "observability",
-            "rollout safety"
+            "service testing"
           ],
-          "composedSectionCount": 25
+          "composedSectionCount": 22
         },
         {
           "commandName": "review-error-handling",
@@ -249,13 +261,14 @@
           "mode": "discovery",
           "deliverableTemplate": "Technical Design Brief",
           "sections": [
-            "approach options",
-            "tradeoffs",
-            "architecture decision",
-            "sequencing",
-            "risk mitigation"
+            "problem + goals",
+            "proposed approach",
+            "alternatives considered",
+            "risk + mitigations",
+            "sequencing + milestones",
+            "review + sign-off"
           ],
-          "composedSectionCount": 17
+          "composedSectionCount": 21
         }
       ]
     },
@@ -270,13 +283,14 @@
           "mode": "discovery",
           "deliverableTemplate": "Feature Specification (Agentic Coding)",
           "sections": [
+            "capability overview",
             "agent workflow",
-            "tool boundaries",
-            "developer ergonomics",
-            "failure modes",
-            "eval plan"
+            "tool surface design",
+            "ergonomics and affordances",
+            "integration points",
+            "rollout plan"
           ],
-          "composedSectionCount": 20
+          "composedSectionCount": 21
         },
         {
           "commandName": "author-skill-flow",
@@ -284,14 +298,14 @@
           "mode": "discovery",
           "deliverableTemplate": "Feature Specification (Agentic Coding)",
           "sections": [
-            "skill trigger",
-            "user path",
-            "instructions",
-            "examples",
-            "guardrails",
-            "test cases"
+            "flow overview",
+            "step sequence",
+            "gate definitions",
+            "state and transitions",
+            "tooling integration",
+            "rollout plan"
           ],
-          "composedSectionCount": 19
+          "composedSectionCount": 21
         },
         {
           "commandName": "build-mcp-tool",
@@ -299,11 +313,12 @@
           "mode": "discovery",
           "deliverableTemplate": "Platform Capability (Implementation Brief)",
           "sections": [
-            "tool schema",
-            "runtime contract",
-            "auth/setup path",
-            "error handling",
-            "observability"
+            "tool overview",
+            "tool contract",
+            "input/output schema",
+            "ergonomics and defaults",
+            "manifest and registration",
+            "rollout plan"
           ],
           "composedSectionCount": 21
         }

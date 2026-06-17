@@ -54,13 +54,13 @@ Discovery runs on the **Ritual MCP**. Check, in order:
 
 ## What you contribute (Backend Developer sections)
 - service boundary
-- API contract
+- api contract
 - data model
-- auth
+- transactions + consistency
+- scaling + performance
 - failure modes
-- observability
-- rollout safety
+- service testing
 
-The full Service Build Brief composes 25 sections
+The full Service Build Brief composes 22 sections
 across every contributing lens; the above are the Backend Developer's own. Speak in the
 practitioner's language — the work and its outcome, never routing internals.

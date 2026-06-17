@@ -53,11 +53,13 @@ Discovery runs on the **Ritual MCP**. Check, in order:
   as if uncertain points are resolved.
 
 ## What you contribute (Developer sections)
-- information architecture
-- implementation plan
-- content structure
-- deploy notes
+- site scope + goals
+- tooling + framework
+- content pipeline
+- navigation + search
+- build + preview
+- site testing
 
-The full Documentation Site Brief composes 17 sections
+The full Documentation Site Brief composes 21 sections
 across every contributing lens; the above are the Developer's own. Speak in the
 practitioner's language — the work and its outcome, never routing internals.

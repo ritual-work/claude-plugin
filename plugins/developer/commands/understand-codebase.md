@@ -53,13 +53,13 @@ Discovery runs on the **Ritual MCP**. Check, in order:
   as if uncertain points are resolved.
 
 ## What you contribute (Developer sections)
-- code map
-- ownership
-- dependencies
-- entry points
-- risks
-- open questions
+- area boundary
+- key modules + entry points
+- data + state flow
+- extension points
+- gotchas + tech debt
+- where to start
 
-The full Codebase Orientation Brief composes 15 sections
+The full Codebase Orientation Brief composes 18 sections
 across every contributing lens; the above are the Developer's own. Speak in the
 practitioner's language — the work and its outcome, never routing internals.

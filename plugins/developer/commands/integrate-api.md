@@ -53,11 +53,13 @@ Discovery runs on the **Ritual MCP**. Check, in order:
   as if uncertain points are resolved.
 
 ## What you contribute (Developer sections)
-- API usage
-- client/server assumptions
-- error handling
-- test cases
+- integration scope
+- api contract mapping
+- data mapping + transforms
+- error + retry handling
+- failure modes
+- integration testing
 
-The full Integration Brief composes 13 sections
+The full Integration Brief composes 15 sections
 across every contributing lens; the above are the Developer's own. Speak in the
 practitioner's language — the work and its outcome, never routing internals.

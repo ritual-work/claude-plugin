@@ -53,12 +53,13 @@ Discovery runs on the **Ritual MCP**. Check, in order:
   as if uncertain points are resolved.
 
 ## What you contribute (Developer sections)
-- task breakdown
-- sequencing
-- dependencies
-- test plan
-- rollout notes
+- scope + assumptions
+- work breakdown
+- dependencies + ordering
+- implementation steps
+- testing + verification
+- rollout + done criteria
 
-The full Implementation Plan composes 16 sections
+The full Implementation Plan composes 18 sections
 across every contributing lens; the above are the Developer's own. Speak in the
 practitioner's language — the work and its outcome, never routing internals.

@@ -53,13 +53,14 @@ Discovery runs on the **Ritual MCP**. Check, in order:
   as if uncertain points are resolved.
 
 ## What you contribute (Developer sections)
+- incident summary
 - symptoms
+- investigation timeline
+- root cause
 - hypotheses
-- repro steps
-- logs to inspect
-- suspected root cause
-- mitigation
+- proposed fix
+- rollback plan
 
-The full Debugging Brief composes 20 sections
+The full Debugging Brief composes 22 sections
 across every contributing lens; the above are the Developer's own. Speak in the
 practitioner's language — the work and its outcome, never routing internals.

@@ -53,14 +53,13 @@ Discovery runs on the **Ritual MCP**. Check, in order:
   as if uncertain points are resolved.
 
 ## What you contribute (Frontend Developer sections)
-- routes
-- components
-- UI state
-- API integration
-- loading/error/empty states
+- feature scope + states
+- component architecture
+- ux state + data binding
+- performance budget
 - accessibility
-- tests
+- frontend testing
 
-The full Frontend Feature Brief composes 20 sections
+The full Frontend Feature Brief composes 21 sections
 across every contributing lens; the above are the Frontend Developer's own. Speak in the
 practitioner's language — the work and its outcome, never routing internals.

@@ -53,12 +53,13 @@ Discovery runs on the **Ritual MCP**. Check, in order:
   as if uncertain points are resolved.
 
 ## What you contribute (Eng Lead sections)
-- approach options
-- tradeoffs
-- architecture decision
-- sequencing
-- risk mitigation
+- problem + goals
+- proposed approach
+- alternatives considered
+- risk + mitigations
+- sequencing + milestones
+- review + sign-off
 
-The full Technical Design Brief composes 17 sections
+The full Technical Design Brief composes 21 sections
 across every contributing lens; the above are the Eng Lead's own. Speak in the
 practitioner's language — the work and its outcome, never routing internals.

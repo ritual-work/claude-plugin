@@ -53,13 +53,13 @@ Discovery runs on the **Ritual MCP**. Check, in order:
   as if uncertain points are resolved.
 
 ## What you contribute (DevEx Engineer sections)
-- skill trigger
-- user path
-- instructions
-- examples
-- guardrails
-- test cases
+- flow overview
+- step sequence
+- gate definitions
+- state and transitions
+- tooling integration
+- rollout plan
 
-The full Feature Specification (Agentic Coding) composes 19 sections
+The full Feature Specification (Agentic Coding) composes 21 sections
 across every contributing lens; the above are the DevEx Engineer's own. Speak in the
 practitioner's language — the work and its outcome, never routing internals.
