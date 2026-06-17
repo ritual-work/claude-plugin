@@ -1,7 +1,7 @@
 {
   "name": "backend-developer",
   "displayName": "Ritual — Backend Developer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Role pack for backend developers. Job-native commands for backend developer work — discovery commands scope a job into a decision-ready Ritual brief before you build; standalone check commands run a local recipe (no Ritual needed). Depends on build-discipline.",
   "author": {
     "name": "Ritual",

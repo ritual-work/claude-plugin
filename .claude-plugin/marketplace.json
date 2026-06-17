@@ -31,7 +31,7 @@
       "name": "developer",
       "source": "./plugins/developer",
       "description": "Role pack for developers. Job-native commands for developer work — discovery commands scope a job into a decision-ready Ritual brief before you build; standalone check commands run a local recipe (no Ritual needed). Depends on build-discipline.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "Ritual",
         "url": "https://ritual.work"
@@ -51,7 +51,7 @@
       "name": "frontend-developer",
       "source": "./plugins/frontend-developer",
       "description": "Role pack for frontend developers. Job-native commands for frontend developer work — discovery commands scope a job into a decision-ready Ritual brief before you build; standalone check commands run a local recipe (no Ritual needed). Depends on build-discipline.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "Ritual",
         "url": "https://ritual.work"
@@ -71,7 +71,7 @@
       "name": "backend-developer",
       "source": "./plugins/backend-developer",
       "description": "Role pack for backend developers. Job-native commands for backend developer work — discovery commands scope a job into a decision-ready Ritual brief before you build; standalone check commands run a local recipe (no Ritual needed). Depends on build-discipline.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "Ritual",
         "url": "https://ritual.work"
@@ -91,7 +91,7 @@
       "name": "eng-lead",
       "source": "./plugins/eng-lead",
       "description": "Role pack for eng leads. Job-native commands for eng lead work — discovery commands scope a job into a decision-ready Ritual brief before you build; standalone check commands run a local recipe (no Ritual needed). Depends on build-discipline.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "Ritual",
         "url": "https://ritual.work"
@@ -111,7 +111,7 @@
       "name": "devex-engineer",
       "source": "./plugins/devex-engineer",
       "description": "Role pack for devex engineers. Job-native commands for devex engineer work — discovery commands scope a job into a decision-ready Ritual brief before you build; standalone check commands run a local recipe (no Ritual needed). Depends on build-discipline.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "Ritual",
         "url": "https://ritual.work"
