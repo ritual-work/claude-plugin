@@ -1,7 +1,7 @@
 {
-  "stamp": "7fd1ed86d727",
-  "cli_version": "0.36.130",
+  "stamp": "29884e4ef1b3",
+  "cli_version": "0.36.131",
   "channel": "claude-plugin",
-  "upstreamBranch": "dev",
-  "upstreamSha": "2ec66523"
+  "upstreamBranch": "codex/retire-skill-compatibility",
+  "upstreamSha": "8afce054"
 }
