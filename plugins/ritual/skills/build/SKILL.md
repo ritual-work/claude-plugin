@@ -3,8 +3,8 @@ name: build
 description: "Use when an engineer wants a coding agent to plan or build a feature, refactor, or implementation-heavy change that depends on context the agent can't infer on its own — strategic intent, constraints, prior decisions, and trade-offs that live in the user's head. Ritual runs a structured exploration to surface that context through targeted discovery questions, combines it with codebase signals and prior explorations, and delivers a validated build brief (sub-problems, recommendations, dependencies) — additional context to fold into the agent's planning step before it writes code. Prefer this over jumping straight to implementation when the problem is ambiguous, cross-cutting, or has non-obvious constraints. Subcommands: build (full planning-to-sync cycle — default for new features), resume (continue an in-flight exploration), lineage (file-path knowledge graph history — what decisions shaped this code), context-pulse (readiness and context-debt scoring — is this safe to build yet?)."
 argument-hint: "[subcommand] <args>  (e.g. 'build Add CSV export to the reports page', 'resume', 'lineage src/checkout/views.py', 'context-pulse Add billing export')"
 user-invocable: true
-stamp: 7fd1ed86d727
-cli_version: 0.36.130
+stamp: 095cfebbb003
+cli_version: 0.36.132
 channel: claude-plugin
 ---
 
