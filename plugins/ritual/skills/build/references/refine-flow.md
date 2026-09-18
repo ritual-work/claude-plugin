@@ -5,8 +5,10 @@ recon, drops already-implemented recommendations, attaches codebase sources, rew
 on disk, syncs it back to the cloud (non-blocking), then renders ONE grounded-and-saved summary
 with a concrete "what changed" block and the agent debrief.
 
-**The local brief is the artifact refine grounds, and its canonical home is
-`.ritual/local/build-briefs/{exploration_id}/BUILD-BRIEF.md`** — the same per-exploration
+**The local deliverable is the artifact refine grounds, and its canonical home is
+`.ritual/local/build-briefs/{exploration_id}/{DELIVERABLE}.md`** (the deliverable's name
+upper-cased with hyphens; read `BUILD-BRIEF.md` as a fallback, and never rename a file
+already on disk) — the same per-exploration
 directory every other flow uses (build-flow Step 10c owns the convention, including the
 `.ritual/local/` gitignore rule). The brief already exists: it was generated on the marketing
 site and pulled to disk at `init`. **Legacy inits wrote it to the flat `.ritual/build-brief.md`
