@@ -7,8 +7,6 @@
  * in gives 80 tools and no flow, the documented "tools with no instructions"
  * failure. Every assistant channel packages its own synced, stamped copy of
  * the skill; this repo shipped only the per-persona command packs until now.
- * See ritual-enterprise documents/architecture/chatgpt-plugin-testing-runbook.md
- * § "Skills never travel with the connector".
  *
  * BUILDS FRESH upstream (apps/cli/scripts/build-skills.js) rather than copying
  * the committed apps/cli/skills/claude-code dir — that committed copy is a
@@ -171,7 +169,7 @@ if (!existsSync(cmdSrc)) {
   /* Loud, not silent: an upstream that stopped emitting commands would leave
      the last synced copies sitting here and look like a healthy build. */
   console.error(
-    `✗ upstream produced no commands at ${cmdSrc} — expected since #1471`,
+    `✗ upstream produced no commands at ${cmdSrc} — this sync requires them`,
   );
   process.exit(1);
 }
