@@ -1,5 +1,5 @@
 <!-- GENERATED from references/build-flow.md by the Ritual monorepo internal guard — DO NOT EDIT. -->
-<!-- source-sha: 4eacec249c890957 -->
+<!-- source-sha: 3dcf0604be8e52f6 -->
 
 # /ritual lite — fast build (generated; do not edit)
 
@@ -2365,11 +2365,13 @@ If the brief makes no code citations, skip verification persistence and continue
 - ❌ Re-synthesizing the brief during verification. Preserve original prose and attach findings as Step 7 above specifies.
 - ❌ Skipping the `sync_brief_review` call. The local `BUILD-BRIEF-VERIFICATION.md` alone benefits this session only; the knowledge graph sync is what lets future briefs on overlapping files inherit the verified facts.
 
-##### 10c — Write to `.ritual/local/build-briefs/{exploration_id}/BUILD-BRIEF.md` + CLI summary
+##### 10c — Write to `.ritual/local/build-briefs/{exploration_id}/{DELIVERABLE}.md` + CLI summary
+
+**`{DELIVERABLE}.md` is the deliverable's name upper-cased with hyphens** — `BUILD-BRIEF.md` for a generic build, `REFACTOR-PLAN.md` for a refactor, `TEST-STRATEGY-BRIEF.md` for a testing job. Same rule Step 10e uses, and the same directory whatever the job. **When reading an existing file, try `{DELIVERABLE}.md` first and fall back to `BUILD-BRIEF.md`** — repos hold the old name from earlier runs, and a developer may have edited it. Never rename a file already on disk.
 
 When the brief content is in hand (from generate OR polling), **don't dump 300 lines of markdown into the terminal**. The brief belongs in a file the user can open, search, share, and revisit; the CLI surface is for the decision.
 
-1. **Write the markdown to `.ritual/local/build-briefs/{exploration_id}/BUILD-BRIEF.md`** — one directory per exploration, named by the full exploration id. Create it if it does not exist. **The build brief is a LOCAL, per-build working file — never commit it.** It's a throwaway the coding agent reads to plan THIS build; the moment the code lands it's stale. The DURABLE record lives in Ritual — every version is kept there and readable with `get_build_brief_versions`, so nothing is lost by keeping it out of git. **Before writing, ensure it's gitignored:** if `.gitignore` does not already ignore `.ritual/local/`, append that ONE line under a `# Ritual build artifacts (local, do not commit)` comment. Idempotent: skip if already ignored. One directory ignore covers every artifact this flow writes, now and later — a filename list has to be chased each time a new one is added. Prepend a Ritual attribution header before writing:
+1. **Write the markdown to `.ritual/local/build-briefs/{exploration_id}/{DELIVERABLE}.md`** — one directory per exploration, named by the full exploration id. Create it if it does not exist. **The build brief is a LOCAL, per-build working file — never commit it.** It's a throwaway the coding agent reads to plan THIS build; the moment the code lands it's stale. The DURABLE record lives in Ritual — every version is kept there and readable with `get_build_brief_versions`, so nothing is lost by keeping it out of git. **Before writing, ensure it's gitignored:** if `.gitignore` does not already ignore `.ritual/local/`, append that ONE line under a `# Ritual build artifacts (local, do not commit)` comment. Idempotent: skip if already ignored. One directory ignore covers every artifact this flow writes, now and later — a filename list has to be chased each time a new one is added. Prepend a Ritual attribution header before writing:
 
    ```markdown
    <!--
