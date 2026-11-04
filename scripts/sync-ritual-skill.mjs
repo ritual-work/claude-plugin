@@ -119,8 +119,8 @@ for (const entry of SHIP) {
 
 for (const file of [
   "SKILL.md",
-  ...readdirSync(join(dest, "references"))
-    .filter((name) => name.endsWith(".md"))
+  ...readdirSync(join(dest, "references"), { recursive: true })
+    .filter((name) => typeof name === "string" && name.endsWith(".md"))
     .map((name) => `references/${name}`),
 ]) {
   const path = join(dest, file);
