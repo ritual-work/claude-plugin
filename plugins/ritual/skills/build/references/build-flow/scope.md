@@ -1,4 +1,4 @@
-<!-- GENERATED from references/build-flow.src.md by apps/cli/scripts/generate-build-flow.js — DO NOT EDIT. -->
+<!-- GENERATED from references/build-flow.src.md by the Ritual monorepo internal guard — DO NOT EDIT. -->
 <!-- source-sha: 2d7be8fda1fc2644 -->
 
 # /ritual build — Scope (generated; do not edit)
@@ -100,7 +100,7 @@ The content the agent collected in Step 3.5.2 also gets folded into the augmente
 [PRD — billing-export.md]
 {first ~2000 chars of content, marked with type + title}
 
-[TRANSCRIPT — billing planning sync 2026-05-09]
+[TRANSCRIPT — billing planning sync]
 {...}
 
 [TICKET — LINEAR-1234]
@@ -180,9 +180,9 @@ LLM call, ~5–10s. Returns 5–6 sub-problems — different framing axes the sy
 
 (Drop the per-exploration decision count from this listing — recommendations + ship status are the user-facing signals, not decision counts. Keep `· N open deferral{s}` when `deferrals > 0` since open deferrals are scope-warning notes the user cares about. If `deferrals === 0`, just show `(shipped {date})` with no trailing segment.)
 
-If `implementationCount === 0`: don't mention the KG check (silent — would just be noise on a cold KG).
+If `implementationCount === 0`: don't mention the knowledge graph check (silent — would just be noise on a cold knowledge graph).
 
-**No pause, and no separate render — auto-accept all generated sub-problems** as `considerations[]` and proceed to Step 5. **Do NOT render the sub-problems on their own here.** A sub-problems-only screen has no decision on it; scope is only meaningfully reviewable once the assembled problem frame sits beside it. So the sub-problems are presented **together with the frame as one Scope gate at Step 5** (§5.1). Store the set (each as `{ text, version: 1 }`) for that combined render. (No `[USER PAUSE]` here — sub-problems are not their own gate. If you surfaced the prior-work KG note above, render it just before the Step 5 Scope gate, not as its own turn.)
+**No pause, and no separate render — auto-accept all generated sub-problems** as `considerations[]` and proceed to Step 5. **Do NOT render the sub-problems on their own here.** A sub-problems-only screen has no decision on it; scope is only meaningfully reviewable once the assembled problem frame sits beside it. So the sub-problems are presented **together with the frame as one Scope gate at Step 5** (§5.1). Store the set (each as `{ text, version: 1 }`) for that combined render. (No `[USER PAUSE]` here — sub-problems are not their own gate. If you surfaced the prior-work knowledge graph note above, render it just before the Step 5 Scope gate, not as its own turn.)
 
 **Rationale for auto-accept:** sub-problem selection is a SCOPE-LOCKING decision, and per the SKILL's own rule "`all` is a legitimate declarative choice — often the right one when the agent has surfaced a tight 3-5 sub-problem set." Asking the user to pick before they've seen the problem frame is theater — the problem statement is the assembled artifact where scope is meaningfully visible, and the refine_scope loop at Step 5 accepts arbitrary change prompts ("drop the observability angle", "make this contract-first") that round-trip through the same sub-problem refinement under the hood. Surfacing the sub-problems as info preserves visibility; dropping the pause keeps a first-time user moving.
 
@@ -193,7 +193,7 @@ The user may, at the Step 5 problem-statement gate, say something like "rethink 
 **Pre-flight (mandatory):** before calling `refine_sub_problems`, run the change pre-flight in `references/change-preflight.md` — restate the change in the user's terms, show the exact `change_prompt` you're about to send, and wait for `yes`. This is a hard pause (even in auto-mode) and fires on every such request, including one-word ones. Do not call the tool until the user confirms.
 
 Call `mcp__ritual__refine_sub_problems` with:
-- `workspace_id`, `raw_input`, `sources` — unchanged from the generate call. Critical: pass the SAME `sources` array each iteration so the KG-injected priorContext stays consistent.
+- `workspace_id`, `raw_input`, `sources` — unchanged from the generate call. Critical: pass the SAME `sources` array each iteration so the knowledge graph-injected priorContext stays consistent.
 - `template_id` — same rule as Step 4: omit unless the user explicitly overrode it. If you passed `template_id` to the original `generate_sub_problems` call, pass the same value here for symmetry; otherwise leave it off and let server-side resolution stay consistent across iterations.
 - `change_prompt`: the user's request verbatim
 - `selected`: items from prior versions the user kept (track `{ text, from_version }`, send just `text`)
@@ -215,7 +215,7 @@ Call `mcp__ritual__generate_scope` with:
 - `raw_input` (same augmented version from Step 4)
 - `considerations` (the picks from Step 4)
 - `template_id` — OPTIONAL, same rule as Step 4. Omit unless the user explicitly overrode; server resolution stays consistent across `generate_sub_problems` → `generate_scope` → `create_exploration`.
-- `sources` (the same file-path list passed to generate_sub_problems — keeps the KG anchor consistent)
+- `sources` (the same file-path list passed to generate_sub_problems — keeps the knowledge graph anchor consistent)
 
 Returns a candidate problem statement plus optional follow-up questions and quality scores. For engineering / agentic-coding templates, translate the returned statement into a developer-oriented **problem frame** before showing it. Do not default to "How might we…" unless the selected template is product/design oriented or the user asks for HMW phrasing.
 
@@ -299,8 +299,8 @@ When the Ritual plugin is attached (see *Plugin-attached rendering*), the number
 
 **On `use` (plugin-attached), reconcile the drawer's STAGED EDITS before locking** — the drawer stages two things to the canonical exploration: the sub-problem `selected` set AND, via "Request adjustment," a refined `problemStatement`. The agent is the sole committer, so at `use` it **commits from the canonical state, never from chat memory** — it re-reads, reconciles, then locks. Mirror the discovery on-proceed pattern (§7.3.1b):
 
-1. Call `mcp__ritual__get_exploration(exploration_id)` and read the canonical `problemStatement` — the drawer's "Request adjustment" (or a Spark refine) may have changed it **out of band** since you rendered the frame. Call `mcp__ritual__get_sub_problems(exploration_id)` and read `selected`.
-2. If `selected` is a **strict subset** of the rendered sub-problem set (the user de-selected some in the drawer): filter `considerations[]` to `selected`, then run the SAME §5.1a re-derive — `refine_scope` with `considerations` = `selected`, `previous_problem_statement` = the **canonical `problemStatement` from step 1** (so any drawer/Spark refinement is the BASIS and is preserved through the re-derive), `change_prompt` = `"Narrow scope to these sub-problems: {selected titles}."` — and surface the one-line approved status `Sub-problems narrowed to {N}.`
+1. Call `mcp__ritual__get_exploration(exploration_id)` and read the canonical `problemStatement` — the drawer's "Request adjustment" (or a the Ritual web app refine) may have changed it **out of band** since you rendered the frame. Call `mcp__ritual__get_sub_problems(exploration_id)` and read `selected`.
+2. If `selected` is a **strict subset** of the rendered sub-problem set (the user de-selected some in the drawer): filter `considerations[]` to `selected`, then run the SAME §5.1a re-derive — `refine_scope` with `considerations` = `selected`, `previous_problem_statement` = the **canonical `problemStatement` from step 1** (so any drawer/the Ritual web app refinement is the BASIS and is preserved through the re-derive), `change_prompt` = `"Narrow scope to these sub-problems: {selected titles}."` — and surface the one-line approved status `Sub-problems narrowed to {N}.`
 3. Else if the canonical `problemStatement` **differs from the frame you rendered** (the user refined the statement in the drawer without narrowing): adopt the canonical text as the lock text and surface the one-line approved status `Problem statement updated from your edits.`
 4. Else (`selected` is the full set and the statement is unchanged, or `get_sub_problems` returns `ready:false` — non-plugin path): proceed to Step 6 unchanged.
 
@@ -317,7 +317,7 @@ If the user asks for a refinement:
 **Pre-flight (mandatory):** before calling `refine_scope`, run the change pre-flight in `references/change-preflight.md` — restate the change in the user's terms, show the exact `change_prompt` you're about to send, and wait for `yes`. This is a hard pause (even in auto-mode) and fires on every refinement request, including a one-word `tighten`/`broaden`. Do not call the tool until the user confirms.
 
 Call `mcp__ritual__refine_scope` with:
-- `workspace_id`, `raw_input`, `considerations`, `sources` — unchanged. (Same `sources` as the original generate call — keeps the KG anchor stable.)
+- `workspace_id`, `raw_input`, `considerations`, `sources` — unchanged. (Same `sources` as the original generate call — keeps the knowledge graph anchor stable.)
 - `template_id` — same rule as Step 4 / Step 5.1: omit unless the user explicitly overrode; if you passed it to the original `generate_scope` call, pass the same value here for symmetry.
 - `previous_problem_statement`: the FULL TEXT of the current best draft
 - `change_prompt`: the user's request verbatim
@@ -357,7 +357,7 @@ Before doing fresh recon, check whether the user already seeded one via `/ritual
 
 If a `CONTEXT-<slug>.md` is found AND its `## The ask` section close-matches the current `raw_input`:
 
-- **Use it to seed `codebase_context_packet`.** Parse the file's `## Candidate files` list — those become the seed for `sources[]`. Parse `## Prior KG context` as evidence inside the packet, not as final prioritization.
+- **Use it to seed `codebase_context_packet`.** Parse the file's `## Candidate files` list — those become the seed for `sources[]`. Parse `## Prior knowledge graph context` as evidence inside the packet, not as final prioritization.
 - **Skip fresh recon** unless the seed is stale or obviously incomplete. If you skip fresh recon, still normalize the seed into the packet structure below before calling MCP tools.
 - **Surface a compact note**:
   > Code recon
@@ -385,7 +385,7 @@ If no seed file is found, OR the seed's `## The ask` doesn't match the current `
    - files read and why they were selected
    - symbols/classes/functions inspected
    - relevant comments, schema details, tests, migrations, and config
-   - KG hits, prior deferrals, and prior implementation references
+   - knowledge graph hits, prior deferrals, and prior implementation references
    - uncertain observations, false leads, and things not found
    - do **not** show this by default and do **not** pass it as the main MCP planning input
 
@@ -557,7 +557,7 @@ If the user explicitly asks "what did you find?", you may show a tight digest th
 
 Collect the file paths you actually read and consider load-bearing for this problem — exactly as they appear in the repo (e.g. `"apps/checkout/views.py"`, not `"./apps/checkout/views.py"` or absolute paths). This list is passed to `create_exploration` (Step 6) — persisted on the exploration so the answer engine, context pulses, and `generate_build_brief` anchor priorContext consistently without you re-passing it.
 
-Keep the list focused. 5–10 is the sweet spot; >20 dilutes the KG signal.
+Keep the list focused. 5–10 is the sweet spot; >20 dilutes the knowledge graph signal.
 
 #### Step 6 — Lock scope: promote the draft to LIVE
 
@@ -571,7 +571,7 @@ Locking scope: **T2 churn reduction (Q3)**
 
 Call `mcp__ritual__lock_exploration_scope` with:
 - `exploration_id` — the draft id you held since Step 0.7 (or Step 1).
-- `problem_statement` — the scope the user locked at Step 5. **Plugin-attached: pass the canonical text reconciled at §5.1b** (re-read from the exploration so an out-of-band drawer/Spark "Request adjustment" is committed), NOT your in-context draft. When no plugin is attached, this is simply the frame the user accepted.
+- `problem_statement` — the scope the user locked at Step 5. **Plugin-attached: pass the canonical text reconciled at §5.1b** (re-read from the exploration so an out-of-band drawer/the Ritual web app "Request adjustment" is committed), NOT your in-context draft. When no plugin is attached, this is simply the frame the user accepted.
 - `jtbd` — pass the FINAL job ONLY if the user ADJUSTED it at the Step 0.7 Scope-entry gate, so go-LIVE records the correction; otherwise OMIT (the draft already carries the slug confirmed at the gate). The job still drives the build-brief → code-plan → implement → PR deliverable phase across every surface.
 - `additional_context` — the full `codebase_context_packet` from Step 5.7 (omit only if recon was skipped, **and omit when §3.9.5 grounded the draft**: the server keeps the verified problem model the harness posted, and sending a packet here would overwrite it). Persisted on the exploration; the server injects it into discovery-question generation as evidence (the questions cover the important tradeoffs it implies) and uses it as the build-brief recon fallback — so it survives `/ritual resume`.
 - `sources` — the file-path list from Step 5.7.3 (omit when §3.9.5 grounded the draft, for the same reason).

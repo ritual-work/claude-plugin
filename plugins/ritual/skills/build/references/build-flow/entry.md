@@ -1,4 +1,4 @@
-<!-- GENERATED from references/build-flow.src.md by apps/cli/scripts/generate-build-flow.js — DO NOT EDIT. -->
+<!-- GENERATED from references/build-flow.src.md by the Ritual monorepo internal guard — DO NOT EDIT. -->
 <!-- source-sha: 2d7be8fda1fc2644 -->
 
 # /ritual build — Entry (generated; do not edit)
@@ -184,7 +184,7 @@ Every message should be the prescribed gate copy (rail + content + CTA) — ters
 3. **End every decision gate with one clear CTA line.** A single `Reply …` / `Next: …` line, not a paragraph of options.
 4. **Lead with "Recommended: …"** instead of multi-line justification. State the recommendation; don't explain why across several lines.
 5. **Status updates are one sentence, no rail** (unless the stage changed). "Still preparing the brief — retrying safely." — never "Timeout on generate call — polling status (per async-polling contract)."
-6. **Use user nouns, not internal shorthand:** workspace history (not KG), build requirements (not RB list), follow-ups (not deferrals), recommendations (not recs), signed-in user (not principal), "saves this selection" (not "commits the set"), strong/likely/possible match (not a confidence %).
+6. **Use user nouns, not internal shorthand:** workspace history (not knowledge graph), build requirements (not RB list), follow-ups (not deferrals), recommendations (not recs), signed-in user (not principal), "saves this selection" (not "commits the set"), strong/likely/possible match (not a confidence %).
 7. **Hide mechanism unless it changes what the user should do.** Names of engine internals, scoring tiers, citation ids, and contracts stay out of gate copy.
 
 7a. **Never send the user's work to another tool unprompted.** Do not write to
