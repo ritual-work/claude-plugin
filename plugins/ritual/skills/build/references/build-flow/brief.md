@@ -1,4 +1,4 @@
-<!-- GENERATED from references/build-flow.src.md by apps/cli/scripts/generate-build-flow.js — DO NOT EDIT. -->
+<!-- GENERATED from references/build-flow.src.md by the Ritual monorepo internal guard — DO NOT EDIT. -->
 <!-- source-sha: 2d7be8fda1fc2644 -->
 
 # /ritual build — Build brief (generated; do not edit)
@@ -37,7 +37,7 @@ Call `mcp__ritual__generate_build_brief` with:
 - `exploration_id`
 - `icp` — **omit this.** The brief sources from the requirement set the flow already generated (on accept), whose ICP the server resolves from the exploration's persona/template. Passing a different ICP here forces a redundant requirement regeneration and a slow cold start. The engineering flavor is already baked into the server-resolved template — you do not need to (and should not) pass `TECH_PM` or any other ICP.
 - `recon_context` — the Step 3 `codebase_context_packet` plus any explicit phase/later candidates from discovery. Do not pass raw recon notes. This grounds "Codebase Anchors" in real file paths while keeping agent hypotheses auditable and non-authoritative.
-- `sources` — the **same** file-path array passed to `generate_sub_problems` and `generate_scope` in Steps 4–5. Critical for KG consistency: the brief's "Previously Deferred" section only populates when overlapping prior implementations exist on these files.
+- `sources` — the **same** file-path array passed to `generate_sub_problems` and `generate_scope` in Steps 4–5. Critical for knowledge graph consistency: the brief's "Previously Deferred" section only populates when overlapping prior implementations exist on these files.
 
 Returns **immediately** with `status: 'GENERATING'` (synthesis runs in the background — poll per Step 10b) UNLESS it's a cache hit, which returns `status: 'READY'` with the brief markdown directly. The brief is **idempotent on (exploration, icp)** — same recommendation+requirement hashes return the cached READY row. Pass `force: true` only when a prompt-version update requires re-generation (also returns `GENERATING` → poll).
 
@@ -92,7 +92,7 @@ If the brief makes no code citations, skip verification persistence and continue
 
 5. **Write `BUILD-BRIEF-VERIFICATION.md`** into the SAME per-exploration directory as the brief (`.ritual/local/build-briefs/{exploration_id}/`) using the schema in `references/brief-verification-checklist.md`. Cite file + line range + actual code snippet on every contradiction. Do not fabricate evidence.
 
-6. **Sync the verification to Ritual's KG** — call `mcp__ritual__sync_brief_review` with:
+6. **Sync the verification to Ritual's knowledge graph** — call `mcp__ritual__sync_brief_review` with:
 
    ```
    {
@@ -125,10 +125,10 @@ If the brief makes no code citations, skip verification persistence and continue
    - **{T} is every citation the brief makes; {U} is the `unverifiable` verdicts.** The summary always shows the coverage, so a pass that could check five of twelve never reads as complete.
    - **If M = 0 AND K = 0 AND U = 0:** print one line, *"✓ Verification complete — all {T} citations checked and verified. `BUILD-BRIEF-VERIFICATION.md` synced."*
    - **If M = 0 AND K = 0 AND U > 0:** print one line, *"✓ Verification complete — {N} of {T} citations verified; {U} need runtime verification. `BUILD-BRIEF-VERIFICATION.md` synced."*
-   - **If M > 0:** print up to 3 top contradictions inline; rest are in the file. At the Step 10d gate, surface the contradictions count + note that plan mode will read them via KG priorContext.
+   - **If M > 0:** print up to 3 top contradictions inline; rest are in the file. At the Step 10d gate, surface the contradictions count + note that plan mode will read them via knowledge graph priorContext.
    - **If brief made zero citations:** print *"✓ Verification skipped — the brief makes no specific code citations to verify."* Skip the sync call (nothing to persist). Proceed to Step 10c.
 
-9. **Continue to Step 10c** with `BUILD-BRIEF.md` + `BUILD-BRIEF-VERIFICATION.md` both ready to write to disk and the verification synced to KG.
+9. **Continue to Step 10c** with `BUILD-BRIEF.md` + `BUILD-BRIEF-VERIFICATION.md` both ready to write to disk and the verification synced to knowledge graph.
 
 **Step 10d integration:** show the verification summary before the user's decision. Plan mode reads the current brief, including any reconciled findings, and the synced reviews via `priorContext`.
 
@@ -138,7 +138,7 @@ If the brief makes no code citations, skip verification persistence and continue
 - ❌ Treating the brief's hedge ("*may deviate if codebase has a stronger pattern*") as license to skip. The hedge means *"go verify"* — exactly what this step does.
 - ❌ Padding the `verified` list. Only enumerate citations the brief actually made.
 - ❌ Re-synthesizing the brief during verification. Preserve original prose and attach findings as Step 7 above specifies.
-- ❌ Skipping the `sync_brief_review` call. The local `BUILD-BRIEF-VERIFICATION.md` alone benefits this session only; the KG sync is what lets future briefs on overlapping files inherit the verified facts.
+- ❌ Skipping the `sync_brief_review` call. The local `BUILD-BRIEF-VERIFICATION.md` alone benefits this session only; the knowledge graph sync is what lets future briefs on overlapping files inherit the verified facts.
 
 ##### 10c — Write to `.ritual/local/build-briefs/{exploration_id}/{DELIVERABLE}.md` + CLI summary
 
@@ -238,7 +238,7 @@ Build brief ready
 Branch by user response. The CTA on screen is `proceed`, but accept these as synonyms so a user typing the obvious intent doesn't get penalized for word choice:
 
 - **`proceed` / `go` / `y` / `yes` / `continue` / `next` / `implement` / `ship`**: continue to Step 11 — which dispatches on the terminal (an `implement` job enters 11.0.0; every other terminal enters its flow in `references/terminal-flows.md`; `deliver` goes straight to Step 13). For `implement`, plan mode reads the current `BUILD-BRIEF.md`, including any reconciled findings, plus synced verification and UX reviews via `priorContext`.
-- **`ux-review` / `review` / `ux`**: continue to Step 10.5 (writes `UX-REVIEW.md`, syncs it to KG via `sync_brief_review`, then continues to Step 11 with the tailored plan-mode prompt). Opt-in; absence is the existing path.
+- **`ux-review` / `review` / `ux`**: continue to Step 10.5 (writes `UX-REVIEW.md`, syncs it to knowledge graph via `sync_brief_review`, then continues to Step 11 with the tailored plan-mode prompt). Opt-in; absence is the existing path.
 - **`local`** (shown only for `generate-evals` / `execute-plan` jobs): continue to Step 11 exactly as `proceed`, with the deliverable kept out of git (`references/terminal-flows.md` § Where each deliverable lives).
 - **`keep`** (shown only for `deliver` jobs): commit the document to the repo's docs first (`references/terminal-flows.md` § Deliver), then Step 13.
 - **`pause`** / `hold` / `stop`: stop here. The brief is on disk; the user can resume with `/ritual resume`.
@@ -284,7 +284,7 @@ Steps:
    - **Same exploration**: silent overwrite + one-line note in the summary.
    - **Different exploration**: confirm before overwriting (same convention as `BUILD-BRIEF.md` in Step 10c — *"A `UX-REVIEW.md` already exists from `{previous}`. Overwrite, or save-to-`UX-REVIEW-{slug}.md`?"*).
 
-5a. **Sync the UX review to Ritual's KG** — call `mcp__ritual__sync_brief_review` with:
+5a. **Sync the UX review to Ritual's knowledge graph** — call `mcp__ritual__sync_brief_review` with:
 
    ```
    {
@@ -295,9 +295,9 @@ Steps:
    }
    ```
 
-   Persists the UX review as a durable `BriefReview` row attached to the exploration. Plan mode reads it via `priorContext` so the plan-mode prompt's mismatches / gaps / new-work items are KG-grounded, not just session-local. `/ritual lineage` on any cited UI file surfaces this review.
+   Persists the UX review as a durable `BriefReview` row attached to the exploration. Plan mode reads it via `priorContext` so the plan-mode prompt's mismatches / gaps / new-work items are knowledge graph-grounded, not just session-local. `/ritual lineage` on any cited UI file surfaces this review.
 
-   **Anti-pattern:** skipping the sync because *"UX-REVIEW.md is right here on disk."* The local file benefits this session only; the KG sync is what lets future briefs / explorations on overlapping files inherit the findings.
+   **Anti-pattern:** skipping the sync because *"UX-REVIEW.md is right here on disk."* The local file benefits this session only; the knowledge graph sync is what lets future briefs / explorations on overlapping files inherit the findings.
 
 6. **Print a compact CLI summary** — the file path + the load-bearing findings only, capped at ≤ 10 lines :
 

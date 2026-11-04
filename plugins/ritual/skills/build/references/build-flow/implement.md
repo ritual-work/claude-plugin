@@ -1,4 +1,4 @@
-<!-- GENERATED from references/build-flow.src.md by apps/cli/scripts/generate-build-flow.js — DO NOT EDIT. -->
+<!-- GENERATED from references/build-flow.src.md by the Ritual monorepo internal guard — DO NOT EDIT. -->
 <!-- source-sha: 2d7be8fda1fc2644 -->
 
 # /ritual build — Implementation (generated; do not edit)
@@ -195,7 +195,7 @@ The user is now in plan mode (from Step 11.0.5). The agent must:
    This is what makes plan mode deliver on the promise of the brief (which delivers on the recs). Feeding the contract in UP FRONT prevents the divergences Step 11.1.6 would otherwise have to catch and send back.
 
    **For a sliced build (11.0.0):** scope the plan to the CURRENT slice — cover only the in-scope requirements assigned to this slice, and put the other slices' requirements under the "Do NOT implement — deferred to a LATER PR" line so plan mode does not touch them. That line is for plan mode's eyes only: the audit (11.1.6) does NOT read deferral out of the plan text. Deferral reaches the audit as the typed `slice_requirement_ids` argument — the `inScope[].id`s this slice covers — which is what makes the other slices' requirements audit as deferred rather than missing.
-   
+
    **Non-goals come in two grades.** `antiGoals[]` are binding: crossing one blocks the audit. `antiGoalCandidates[]` (when present) are UNCONFIRMED — verbatim text from a rejected recommendation's title or a comment, with a `provenance` saying so. List them to plan mode as "unconfirmed non-goal candidates — do not treat as decisions", never under the binding non-goals line.
 
 3. **Produce a numbered implementation plan** that:
@@ -280,7 +280,7 @@ Reply `audit-plan` to run it, or `proceed` to start implementing.
   plan operations, audits the other slices' requirements as deferred, and runs
   R6 against the brief's scope contract. It's async — the tool polls to
   completion and returns a thin payload:
-  
+
   - `audit_status: "ok"` (no divergences) → tell the user the plan is faithful to
     the brief and continue to Step 11.2.
   - `audit_status: "needs_attention"` → render each divergence (`divergence_kind`
@@ -702,7 +702,7 @@ again; nothing is lost.
 
 If they want to check the state at any time, point them at:
 
-> `ritual graph status` (in their CLI) — shows the workspace's current KG counts + recent implementations.
+> `ritual graph status` (in their CLI) — shows the workspace's current knowledge graph counts + recent implementations.
 
 Or: re-run `/ritual build` in this workspace later — the existing-work check will surface this exploration with its new `done` state badge, and any future build whose `sources` overlap will pull in the decisions + deferrals you just logged as priorContext.
 

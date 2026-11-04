@@ -57,8 +57,8 @@ test("shared public scrub preserves runtime templates and removes authoring pros
   // Same scope as the scrub pass in scripts/sync-ritual-skill.mjs.
   const files = [
     "SKILL.md",
-    ...readdirSync(new URL("skills/build/references/", root))
-      .filter((name) => name.endsWith(".md"))
+    ...readdirSync(new URL("skills/build/references/", root), { recursive: true })
+      .filter((name) => typeof name === "string" && name.endsWith(".md"))
       .map((name) => `references/${name}`),
   ];
   for (const file of files) {

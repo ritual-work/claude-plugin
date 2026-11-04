@@ -1,4 +1,4 @@
-<!-- GENERATED from references/build-flow.src.md by apps/cli/scripts/generate-build-flow.js — DO NOT EDIT. -->
+<!-- GENERATED from references/build-flow.src.md by the Ritual monorepo internal guard — DO NOT EDIT. -->
 <!-- source-sha: 2d7be8fda1fc2644 -->
 
 # /ritual build — Discovery (generated; do not edit)
@@ -76,13 +76,13 @@ Loop:
 
 If ~10 minutes pass still `generating`, surface it as an anomaly rather than polling on silently.
 
-Don't poll faster than every 10 seconds (matches the Spark UI's 10s discovery cadence). Follow the global polling rule above: a constant ~10s cadence and a one-line update every ~2 polls (~20s). Polling heartbeats are exempt from the Build rail rule per `references/cli-output-contract.md` § Build progress anchor — does NOT apply to.
+Don't poll faster than every 10 seconds (matches the Ritual web app's 10s discovery cadence). Follow the global polling rule above: a constant ~10s cadence and a one-line update every ~2 polls (~20s). Polling heartbeats are exempt from the Build rail rule per `references/cli-output-contract.md` § Build progress anchor — does NOT apply to.
 
 ##### 7.3 — Question picking: the suggested-12 landing (default) + the expert walk (on request)
 
 The state contains `matters[]`, each with `id`, `name`, and `questions[]`. Internally these are `matter`s; user-facing copy ALWAYS calls them **Areas**.
 
-**Landing-first.** The default render is NOT the Area walk — it is the **suggested-12 landing**: Ritual's 12 suggested questions across all Areas, listed IN FULL (never truncated), grouped by Area, pre-selected. One word (`proceed`) commits them; `expert` opens the Area-by-Area walk with the 12 already selected (toggle to adjust). The walk MIRRORS the Spark `/discover` picker (Area rail + current Area's questions + Summary before commit) and remains the place to push toward the 15–20 good-coverage range — it's just opt-in now instead of mandatory.
+**Landing-first.** The default render is NOT the Area walk — it is the **suggested-12 landing**: Ritual's 12 suggested questions across all Areas, listed IN FULL (never truncated), grouped by Area, pre-selected. One word (`proceed`) commits them; `expert` opens the Area-by-Area walk with the 12 already selected (toggle to adjust). The walk MIRRORS the Ritual web app `/discover` picker (Area rail + current Area's questions + Summary before commit) and remains the place to push toward the 15–20 good-coverage range — it's just opt-in now instead of mandatory.
 
 The two failure modes this contract prevents:
 - **A bare Area index** — the rail (or a "pick an Area" menu) with **no questions under it**. The rail without its current Area's questions is exactly the removed model; always render the questions inline.- **A full dump** — every Area's questions in one message. Only the **current** Area's questions render per turn.
@@ -296,7 +296,7 @@ Reply numbers (e.g. `1,4`), `next`, `prev`, or `skip`.
 
 ###### 7.3.3 — Summary (after the last Area, or on `done`) — the review-before-commit gate
 
-Render all picks grouped by Area. This MIRRORS Spark's Summary tab and is the gate where the user confirms before the run. Use `✓` picked / `—` none / `□` untouched. NEVER strikethrough (renders inconsistently across terminals).
+Render all picks grouped by Area. This MIRRORS the Ritual web app's Summary tab and is the gate where the user confirms before the run. Use `✓` picked / `—` none / `□` untouched. NEVER strikethrough (renders inconsistently across terminals).
 
 ```text
 Question picking · Summary                              {T} picked
@@ -560,7 +560,7 @@ This pre-roll is for the **rec-generation wait** — fire it once server-side wo
 
 **Lock the product promise BEFORE you enter the polling loop.** Recommendation generation continues server-side; the user is free to step away. The polling loop becomes the agent's job, not the user's obligation.
 
-Tier the pre-roll by projected duration. Latency baseline: ~15s/question (V5.2 + KG injection, calibrate quarterly against `recs-pipeline.ts` eval results). Multiply the picked-question count by 15s, divide by 60 to get minutes.
+Tier the pre-roll by projected duration. Latency baseline: ~15s/question (V5.2 + knowledge graph injection, calibrate quarterly against `recs-pipeline.ts` eval results). Multiply the picked-question count by 15s, divide by 60 to get minutes.
 
 **Projected ≤ 2 min** — skip the pre-roll entirely. The polling micro-copy below covers the framing.
 
@@ -620,7 +620,7 @@ The *only* difference between the two answerer paths — **local coding agent** 
 
 **Agent-answered path (default):** you already wrote + `submit_all_answers`'d, so there's no agentic run to poll — go straight to the recommendation wait: poll `mcp__ritual__get_exploration_status(exploration_id).recommendationsStatus` (a constant ~20s cadence, a "still generating recommendations…" line every ~3 polls) until it reads `ready`, then fetch + continue to Step 9. `generating` → keep polling; `empty` → genuine zero-rec terminal; NEVER render the Step 9 landing or call `accept_recommendations` from anything but `ready`; if 10+ min pass still `generating`, surface it as an anomaly. (Skip the `get_discovery_run` polling below — that's the server-fallback path.)
 
-**Server fallback path** (you called `start_discovery_run`): poll `mcp__ritual__get_discovery_run(run_id)` using `references/async-polling.md`: **a constant ~20s cadence** (matches Spark's 20s agentic cadence; never escalate), then a fresh status call. Even if the run takes 2+ minutes the cadence stays constant. Agentic runs CAN exceed 5 min for large explorations — keep the same constant cadence and keep polling; if status is still running past ~10 min, surface it as an anomaly rather than escalating the wait.
+**Server fallback path** (you called `start_discovery_run`): poll `mcp__ritual__get_discovery_run(run_id)` using `references/async-polling.md`: **a constant ~20s cadence** (matches the Ritual web app's 20s agentic cadence; never escalate), then a fresh status call. Even if the run takes 2+ minutes the cadence stays constant. Agentic runs CAN exceed 5 min for large explorations — keep the same constant cadence and keep polling; if status is still running past ~10 min, surface it as an anomaly rather than escalating the wait.
 
 **On the FIRST poll only** (not every poll), prepend one line that locks the "background execution is default" mental model:
 
@@ -717,7 +717,7 @@ For each question's loop:
    - **If "iterate" (any free-text reply):** call `mcp__ritual__refine_answer({ consideration_id, message: user_text })`. The answer engine:
        - Persists the user message in the consideration's chat
        - Generates a new AI response (which is either the next clarifying question OR a recognition that the answer is now complete)
-       - The new response is **automatically KG-aware**: the answer engine reads the exploration's persisted `sources` and pulls in relevant prior decisions + open deferrals when forming the next question
+       - The new response is **automatically knowledge graph-aware**: the answer engine reads the exploration's persisted `sources` and pulls in relevant prior decisions + open deferrals when forming the next question
 
      **Loop back to step 2 with the updated state.** Fetch fresh state via `get_answer_state` (the considerations array now reflects the new chat message + AI response), show v_N+1, prompt again. Cap at ~5 iterations per consideration before suggesting "let's submit and move on" — keeps cost bounded.
 
