@@ -18,8 +18,8 @@ Before **every** call to a tool that mutates an artifact from a free-text user r
 
 | User asks (free text) | Tool the agent is about to call |
 |---|---|
-| "rethink / change the sub-problems", "show me other angles" | `mcp__ritual__refine_considerations` |
-| "tighten / broaden / reframe / drop X from the scope" | `mcp__ritual__refine_problem_statement` |
+| "rethink / change the sub-problems", "show me other angles" | `mcp__ritual__refine_sub_problems` |
+| "tighten / broaden / reframe / drop X from the scope" | `mcp__ritual__refine_scope` |
 | "add an anti-goal", "don't touch X", "keep Y out of scope" | `mcp__ritual__set_anti_goals` |
 
 **Always fire — no exceptions for "obvious" requests.** Even a one-word `tighten` or `broaden` gets
@@ -75,7 +75,7 @@ Rules for the block:
 ## Note — "add a question or matter that wasn't there"
 
 Adding a *net-new* discovery question or matter is handled inside the discovery walk itself
-(`build-flow.md` § 7.3, via `mcp__ritual__create_discovery_matter` +
+(`build-flow.md` § 7.3, via `mcp__ritual__create_discovery_area` +
 `mcp__ritual__add_discovery_question`): the user types the question text and the walk commits it
 **verbatim**, so there is no free-text *translation* to validate and this pre-flight does not fire
 there. This protocol covers the three translate-then-mutate tools listed above; any future tool that
